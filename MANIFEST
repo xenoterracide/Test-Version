@@ -1,0 +1,10 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+lib/Version.pm
+t/check_version.t
+t/load.t
+t/test_manifest
+t/version/good.pm
+t/version/no_version.pm
