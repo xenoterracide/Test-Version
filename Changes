@@ -1,6 +1,10 @@
 Revision history for Perl extension Test::Version.
 
+0.02 Mon Nov 18 12:00:00 2002
+    - removed rogue 'plan' statement in Version.pm,
+      which was causing test failure
+
 0.01  Thu Nov 17 12:00:00 2002
-	- original version; created by h2xs 1.21 with options
-		-AX Test::Version
+    - original version; created by h2xs 1.21 with options
+        -AX Test::Version
 

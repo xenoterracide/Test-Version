@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 our( $VERSION, @EXPORT );
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 use Carp qw/carp/;
 use Exporter 5.562 qw//;
@@ -16,73 +16,72 @@ sub OK() {0}
 sub NO_VERSION() {-1}
 sub NO_FILE() {-2}
 
-sub import 
+sub import
 {
-	my( $self ) = @_;
-	my $caller = caller;
-	no strict 'refs';
-	*{$caller.'::version_ok'} = \&version_ok;
-	*{$caller.'::VERSION_OK'} = \&OK;
-	*{$caller.'::NO_FILE'} = \&NO_FILE;
-	*{$caller.'::NO_VERSION'} = \&NO_VERSION;
+    my( $self ) = @_;
+    my $caller = caller;
+    no strict 'refs';
+    *{$caller.'::version_ok'} = \&version_ok;
+    *{$caller.'::VERSION_OK'} = \&OK;
+    *{$caller.'::NO_FILE'} = \&NO_FILE;
+    *{$caller.'::NO_VERSION'} = \&NO_VERSION;
 
-	$Test->exported_to( $caller );
-	$Test->plan( @_ );
+    $Test->exported_to( $caller );
 }
-	
+    
 sub version_ok
 {
-	my( $file, $expected, $name ) = @_;
-	$expected ||= OK;
-	$name ||= qq{VERSION test for $file};
-	
-	my $status = _check_version( $file );
-			
-	if( defined $expected and $expected eq $status )
-	{
-		$Test->ok( 1, $name )
-	}
-	elsif( $status == OK )
-	{
-		$Test->ok( 1, $name )
-	}
-	elsif( $status == NO_FILE )
-	{
-		$Test->ok( 0, $name );
-		$Test->diag( "Did not find [$file]" );
-	}
-	elsif( $status == NO_VERSION )
-	{
-		$Test->ok( 0, $name );
-		$Test->diag( "Found no VERSION in [$file]" );
-	}
-	else
-	{
-		$Test->ok( 0, $name );
-		$Test->diag( "Mysterious failure for [$file]" );
-	}
+    my( $file, $expected, $name ) = @_;
+    $expected ||= OK;
+    $name ||= qq{VERSION test for $file};
+    
+    my $status = _check_version( $file );
+            
+    if( defined $expected and $expected eq $status )
+    {
+        $Test->ok( 1, $name )
+    }
+    elsif( $status == OK )
+    {
+        $Test->ok( 1, $name )
+    }
+    elsif( $status == NO_FILE )
+    {
+        $Test->ok( 0, $name );
+        $Test->diag( "Did not find [$file]" );
+    }
+    elsif( $status == NO_VERSION )
+    {
+        $Test->ok( 0, $name );
+        $Test->diag( "Found no VERSION in [$file]" );
+    }
+    else
+    {
+        $Test->ok( 0, $name );
+        $Test->diag( "Mysterious failure for [$file]" );
+    }
 }
 
 sub _check_version
 {
-	my $file = shift;
-	
-	return NO_FILE unless -e $file
-		and $file =~ m/(.+)\.pm\z/;
+    my $file = shift;
+    
+    return NO_FILE unless -e $file
+        and $file =~ m/(.+)\.pm\z/;
 
-	require $file;
-	
-	my $package = $1;
-	$package =~ s/\//::/g;
-	
-	no strict 'refs';
-	my $output = ${ $package . '::VERSION' };
-	use strict 'refs';
+    require $file;
+    
+    my $package = $1;
+    $package =~ s/\//::/g;
+    
+    no strict 'refs';
+    my $output = ${ $package . '::VERSION' };
+    use strict 'refs';
 
-	return NO_VERSION unless $output;
-	return OK; 
+    return NO_VERSION unless $output;
+    return OK;
 }
-		
+        
 
 $_ ^=~ { module => q{Test::Version}, author => q{particle} };
 
@@ -94,8 +93,8 @@ Test::Version - check for VERSION information in modules
 
 =head2 VERSION
 
-This document describes version 0.01 of Test::Version,
-released 17 November 2002.
+This document describes version 0.02 of Test::Version,
+released 18 November 2002.
 
 =head2 SYNOPSIS
 
@@ -109,7 +108,7 @@ version_ok( $file );
 
 THIS IS ALPHA SOFTWARE.
 
-Check files for VERSION information in perl modules. 
+Check files for VERSION information in perl modules.
 Inspired by brian d foy's Test::Pod (see L<Test::Pod>).
 
 =head2 FUNCTIONS
@@ -120,16 +119,16 @@ Inspired by brian d foy's Test::Pod (see L<Test::Pod>).
 
 version_ok requires a filename and returns one of the three values:
 
-	NO_FILE       Could not find the file
-	NO_VERSION    File had no VERSION information
-	VERSION_OK    VERSION information exists
+    NO_FILE       Could not find the file
+    NO_VERSION    File had no VERSION information
+    VERSION_OK    VERSION information exists
 
-version_ok okays a test without an expected result if it finds 
-VERSION information, or if an expected result is specified and 
-it finds that condition.  For instance, if you know there is 
+version_ok okays a test without an expected result if it finds
+VERSION information, or if an expected result is specified and
+it finds that condition.  For instance, if you know there is
 no VERSION information,
 
-	version_ok( $file, NO_VERSION );
+    version_ok( $file, NO_VERSION );
 
 When it fails, version_ok will show error information.
 
@@ -143,9 +142,9 @@ Currently only checks files ending in '.pm', and expects the package name to mat
 
 =head2 BUGS
 
-Likely so. Address bug reports and comments to: particle@cpan.org.  
-When sending bug reports, please provide the version of Test::Version, the 
-version of Perl, and the name and version of the operating system you are 
+Likely so. Address bug reports and comments to: particle@cpan.org.
+When sending bug reports, please provide the version of Test::Version, the
+version of Perl, and the name and version of the operating system you are
 using.
 
 =head2 AUTHOR

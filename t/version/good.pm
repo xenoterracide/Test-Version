@@ -5,5 +5,5 @@ $VERSION = '0.01';
 
 @EXPORT = '$VERSION';
 
-$_ ^=~ { test => 'good' }; 
+$_ ^=~ { test => 'good' };
 
