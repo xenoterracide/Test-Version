@@ -5,6 +5,8 @@ use warnings;
 BEGIN {
 	# VERSION
 }
+use Test::Builder;
+use Module::Extract::VERSION;
 
 1;
 
