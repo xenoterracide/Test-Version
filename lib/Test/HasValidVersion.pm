@@ -8,4 +8,4 @@ BEGIN {
 
 1;
 
-# ABSTRACT: Test::HasValidVersion
+# ABSTRACT: Check Perl modules for valid version numbers
