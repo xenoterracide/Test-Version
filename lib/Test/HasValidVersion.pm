@@ -5,15 +5,15 @@ use warnings;
 BEGIN {
 	# VERSION
 }
-use Test::Builder;
-use Module::Extract::VERSION;
-use version qw( is_lax );
 use parent 'Exporter';
+use Test::Builder;
+use version qw( is_lax );
 use boolean;
 use File::Find::Rule::Perl;
+use Module::Extract::VERSION;
 use Test::More;
 
-our @EXPORT = qw ( all_pm_version_is_valid );
+our @EXPORT = qw ( version_all_ok );
 
 my $test = Test::Builder->new;
 
@@ -23,39 +23,42 @@ sub _get_version {
 		= Module::Extract::VERSION->parse_version_safely( $pm );
 }
 
-sub version_is_valid {
-	my ( $version, $name, $file ) = @_;
+sub version_ok {
+	my ( $file, $name ) = @_;
 
-	$name = "$version is valid" unless $name;
+	my $version = _get_version( $file );
+
+	$name = "$file version $version is valid" unless $name;
+
+	if ( not $version ) {
+		$test->ok( false , $name );
+		$test->diag( "VERSION not defined in $file" );
+	}
 
 	if ( is_lax( $version ) ) {
 		$test->ok( true, $name );
 	}
 	else {
-		$test->ok( false, "$file version not valid");
+		$test->ok( false, "$name");
+		$test->diag( "$file VERSION $version is not a valid verion" );
 	}
 }
 
-sub all_pm_version_is_valid {
+sub version_all_ok {
 	my ( $dir, $name ) = @_;
 
 	$name = "all modules in $dir have valid versions" unless $name;
 
 	unless ( -d $dir ) {
-		$test->ok( 0, $name );
+		$test->ok( false, $name );
 		$test->diag( "$dir does not exist, or is not a directory" );
 		return;
 	}
 	my @files = File::Find::Rule->perl_module->in( $dir );
 
-	$test->subtest( "All versions are valid", sub {
-		foreach my $file ( @files ) {
-			my $version = _get_version( $file );
-			next unless $version;
-
-			version_is_valid( $version, "$file version $version is valid");
-		}
-	});
+	foreach my $file ( @files ) {
+		version_ok( $file );
+	}
 }
 1;
 
