@@ -50,6 +50,8 @@ sub version_all_ok {
 	$dir = defined $dir
 		? $dir
 		: -d 'blib' ? 'blib' : 'lib';
+	# Report failure location correctly - GH #1
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 
 	$name = "all modules in $dir have valid versions" unless $name;
 
