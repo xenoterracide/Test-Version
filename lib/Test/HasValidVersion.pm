@@ -14,6 +14,7 @@ use Module::Extract::VERSION;
 use Test::More;
 
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
+our @EXPORT_OK = qw( version_ok );
 
 my $test = Test::Builder->new;
 
