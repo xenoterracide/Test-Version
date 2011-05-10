@@ -28,7 +28,7 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-	$name = "$file version $version is valid" unless $name;
+	$name = "validate VERSION in $file" unless $name;
 
 	if ( not $version ) {
 		$test->ok( false , $name );
