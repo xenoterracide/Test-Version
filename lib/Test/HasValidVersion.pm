@@ -36,11 +36,11 @@ sub version_ok {
 	}
 
 	if ( is_lax( $version ) ) {
-		$test->ok( true, $name );
+		$test->ok( true, "VERSION $version in $file is valid" );
 	}
 	else {
-		$test->ok( false, "$name");
-		$test->diag( "$file VERSION $version is not a valid verion" );
+		$test->ok( false, $name );
+		$test->diag( "VERSION in $file is not a valid version" );
 	}
 }
 
