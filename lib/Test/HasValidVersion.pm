@@ -13,7 +13,7 @@ use File::Find::Rule::Perl;
 use Module::Extract::VERSION;
 use Test::More;
 
-our @EXPORT = qw ( version_all_ok );
+our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
 
 my $test = Test::Builder->new;
 
