@@ -7,7 +7,7 @@ BEGIN {
 }
 use parent 'Exporter';
 use Test::Builder;
-use version qw( is_lax );
+use version 0.77 qw( is_lax );
 use boolean;
 use File::Find::Rule::Perl;
 use Module::Extract::VERSION;
