@@ -47,6 +47,9 @@ sub version_ok {
 
 sub version_all_ok {
 	my ( $dir, $name ) = @_;
+	$dir = defined $dir
+		? $dir
+		: -d 'blib' ? 'blib' : 'lib';
 
 	$name = "all modules in $dir have valid versions" unless $name;
 
