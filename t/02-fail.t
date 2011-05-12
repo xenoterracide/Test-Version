@@ -7,8 +7,8 @@ use Test::More;
 use Test::HasValidVersion qw( version_all_ok );
 
 test_out(
-    'ok 1 - VERSION 1.0.1 in corpus/fail/FooBar.pm is valid',
-    'not ok 2 - validate VERSION in corpus/fail/FooBarBaz.pm',
+	'ok 1 - VERSION 1.0.1 in corpus/fail/FooBar.pm is valid',
+	'not ok 2 - validate VERSION in corpus/fail/FooBarBaz.pm',
 );
 test_fail(+3);
 test_diag('VERSION in corpus/fail/FooBarBaz.pm is not a valid version');
