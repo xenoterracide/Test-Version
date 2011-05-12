@@ -48,9 +48,13 @@ sub version_ok {
 
 sub version_all_ok {
 	my ( $dir, $name ) = @_;
-	$dir = defined $dir
-		? $dir
-		: -d 'blib' ? 'blib' : 'lib';
+
+	$dir
+		= defined $dir ? $dir
+		: -d 'blib'    ? 'blib'
+		:                'lib'
+		;
+
 	# Report failure location correctly - GH #1
 	local $Test::Builder::Level = $Test::Builder::Level + 1;
 
