@@ -43,6 +43,7 @@ sub version_ok {
 		$test->ok( false, $name );
 		$test->diag( "VERSION in $file is not a valid version" );
 	}
+	return;
 }
 
 sub version_all_ok {
@@ -65,6 +66,7 @@ sub version_all_ok {
 	foreach my $file ( @files ) {
 		version_ok( $file );
 	}
+	return;
 }
 1;
 
