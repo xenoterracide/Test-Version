@@ -56,7 +56,7 @@ sub version_all_ok {
 		;
 
 	# Report failure location correctly - GH #1
-	local $Test::Builder::Level = $Test::Builder::Level + 1;
+	local $Test::Builder::Level = $Test::Builder::Level + 1; ## no critic (Variables::ProhibitPackageVars)
 
 	$name = "all modules in $dir have valid versions" unless $name;
 
