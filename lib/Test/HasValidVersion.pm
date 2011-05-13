@@ -34,6 +34,7 @@ sub version_ok {
 	if ( not $version ) {
 		$test->ok( false , $name );
 		$test->diag( "VERSION not defined in $file" );
+		return;
 	}
 
 	if ( is_lax( $version ) ) {
