@@ -4,9 +4,11 @@ use strict;
 use warnings;
 use Test::Builder::Tester;
 use Test::More;
-use Test::HasValidVersion qw( version_all_ok );
+use Test::HasValidVersion qw( version_ok );
 
 test_out( 'ok 1 - VERSION 1.0 in corpus/pass/Foo.pm is valid' );
-version_all_ok( 'corpus/pass' );
+
+version_ok( 'corpus/pass/Foo.pm' );
+
 test_test;
 done_testing;
