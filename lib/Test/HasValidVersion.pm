@@ -75,4 +75,28 @@ sub version_all_ok {
 }
 1;
 
-# ABSTRACT: Check Perl modules for valid version numbers
+# ABSTRACT: Check to see that a valid version exists in modules
+
+=head1 SYNOPSIS
+
+	use Test::More;
+	use Test::HasValidVersion;
+
+	# test blib or lib by default
+	version_all_ok;
+
+	done_testing;
+
+=head1 DESCRIPTION
+
+=head1 METHODS
+
+=over
+
+=item version_ok
+
+=item version_all_ok
+
+=back
+
+=cut
