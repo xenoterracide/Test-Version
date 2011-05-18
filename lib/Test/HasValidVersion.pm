@@ -29,7 +29,7 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-	$name = "validate VERSION in $file" unless $name;
+	$name ||= "validate VERSION in $file";
 
 	if ( not $version ) {
 		$test->ok( false , $name );
@@ -59,7 +59,7 @@ sub version_all_ok {
 	# Report failure location correctly - GH #1
 	local $Test::Builder::Level = $Test::Builder::Level + 1; ## no critic (Variables::ProhibitPackageVars)
 
-	$name = "all modules in $dir have valid versions" unless $name;
+	$name ||= "all modules in $dir have valid versions";
 
 	unless ( -d $dir ) {
 		$test->ok( false, $name );
