@@ -1,189 +1,127 @@
 package Test::Version;
-require 5.006_001;
+use 5.006;
 use strict;
 use warnings;
+BEGIN {
+	our $VERSION = '0.04'; # VERSION
+}
+use parent 'Exporter';
+use Test::Builder;
+use version 0.77 qw( is_lax );
+use boolean;
+use File::Find::Rule::Perl;
+use Module::Extract::VERSION;
+use Test::More;
 
-our( $VERSION, @EXPORT );
-$VERSION = '0.02';
+our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
+our @EXPORT_OK = qw( version_ok );
 
-use Carp qw/carp/;
-use Exporter 5.562 qw//;
-use Test::Builder 0.17 qw//;
+my $test = Test::Builder->new;
 
-my $Test = Test::Builder->new();
-
-sub OK() {0}
-sub NO_VERSION() {-1}
-sub NO_FILE() {-2}
-
-sub import
-{
-    my( $self ) = @_;
-    my $caller = caller;
-    no strict 'refs';
-    *{$caller.'::version_ok'} = \&version_ok;
-    *{$caller.'::VERSION_OK'} = \&OK;
-    *{$caller.'::NO_FILE'} = \&NO_FILE;
-    *{$caller.'::NO_VERSION'} = \&NO_VERSION;
-
-    $Test->exported_to( $caller );
+sub _get_version {
+	my $pm = shift;
+	return my $version
+		= Module::Extract::VERSION->parse_version_safely( $pm );
 }
 
-sub version_ok
-{
-    my( $file, $expected, $name ) = @_;
-    $expected ||= OK;
-    $name ||= qq{VERSION test for $file};
+sub version_ok {
+	my ( $file, $name ) = @_;
 
-    my $status = _check_version( $file );
+	my $version = _get_version( $file );
 
-    if( defined $expected and $expected eq $status )
-    {
-        $Test->ok( 1, $name )
-    }
-    elsif( $status == OK )
-    {
-        $Test->ok( 1, $name )
-    }
-    elsif( $status == NO_FILE )
-    {
-        $Test->ok( 0, $name );
-        $Test->diag( "Did not find [$file]" );
-    }
-    elsif( $status == NO_VERSION )
-    {
-        $Test->ok( 0, $name );
-        $Test->diag( "Found no VERSION in [$file]" );
-    }
-    else
-    {
-        $Test->ok( 0, $name );
-        $Test->diag( "Mysterious failure for [$file]" );
-    }
+	$name ||= "validate VERSION in $file";
+
+	if ( not $version ) {
+		$test->ok( false , $name );
+		$test->diag( "VERSION not defined in $file" );
+		return;
+	}
+
+	if ( is_lax( $version ) ) {
+		$test->ok( true, "VERSION $version in $file is valid" );
+	}
+	else {
+		$test->ok( false, $name );
+		$test->diag( "VERSION in $file is not a valid version" );
+	}
+	return;
 }
 
-sub _check_version
-{
-    my $file = shift;
+sub version_all_ok {
+	my ( $dir, $name ) = @_;
 
-    return NO_FILE unless -e $file
-        and $file =~ m/(.+)\.pm\z/;
+	$dir
+		= defined $dir ? $dir
+		: -d 'blib'    ? 'blib'
+		:                'lib'
+		;
 
-    require $file;
+	# Report failure location correctly - GH #1
+	local $Test::Builder::Level = $Test::Builder::Level + 1; ## no critic (Variables::ProhibitPackageVars)
 
-    my $package = $1;
-    $package =~ s/\//::/g;
+	$name ||= "all modules in $dir have valid versions";
 
-    no strict 'refs';
-    my $output = ${ $package . '::VERSION' };
-    use strict 'refs';
+	unless ( -d $dir ) {
+		$test->ok( false, $name );
+		$test->diag( "$dir does not exist, or is not a directory" );
+		return;
+	}
+	my @files = File::Find::Rule->perl_module->in( $dir );
 
-    return NO_VERSION unless $output;
-    return OK;
+	foreach my $file ( @files ) {
+		version_ok( $file );
+	}
+	return;
 }
+1;
+
+# ABSTRACT: Check to see that a valid version exists in modules
 
 
-$_ ^=~ { module => q{Test::Version}, author => q{particle} };
-
-
-
+__END__
 =pod
 
 =head1 NAME
 
-Test::Version - check for VERSION information in modules
+Test::Version - Check to see that a valid version exists in modules
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
+	use Test::More;
 	use Test::Version;
 
-	my $file = 'path/to/file.pm';
+	# test blib or lib by default
+	version_all_ok;
 
-	version_ok( $file );
+	done_testing;
 
 =head1 DESCRIPTION
 
-Check files for VERSION information in perl modules.
-Inspired by brian d foy's Test::Pod (see L<Test::Pod>).
+=head1 METHODS
 
-=head1 ANNOUNCEMENT
+=over
 
-B<IMPORTANT:> This is alpha software, that was originally released in 2002. This is the
-last release of this module based on this code, the next release of
-L<Test::Version> will be a rewrite from the ground up and will contain API
-changes. This version was released to notify of new maintainership and coming
-changes without breaking API. No functional code changes were made to this
-module in this relaease.
+=item version_ok
 
-=head1 FUNCTIONS
-
-=over 4
-
-=item version_ok( FILENAME, [EXPECTED, [NAME] ] )
-
-B<Deprecation Note:> EXPECTED is going away and the returns are are changing. simply
-calling C<version_ok( $filename );> should still work, however it will be
-stricter in future versions by checking for version validity.
-
-version_ok requires a filename and returns one of the three values:
-
-    NO_FILE       Could not find the file
-    NO_VERSION    File had no VERSION information
-    VERSION_OK    VERSION information exists
-
-version_ok okays a test without an expected result if it finds
-VERSION information, or if an expected result is specified and
-it finds that condition.  For instance, if you know there is
-no VERSION information,
-
-    version_ok( $file, NO_VERSION );
-
-When it fails, version_ok will show error information.
-
-The optional third argument NAME is the name of the test
-which version_ok passes through to Test::Builder.  Otherwise,
-it choose a default test name "VERSION test for FILENAME".
+=item version_all_ok
 
 =back
 
-=head1 CAVEATS
-
-Currently only checks files ending in '.pm', and expects the package name to match the filename. I'm open to suggestions for more robust parsing.
-
-=head1 CREDITS
-
-Thanks to brian d foy for the inspiration -- his Test::Pod module (on which this code is based,) and his "Better Documentation Through Testing" article in The Perl Journal, Nov 2002 (see http://www.tpj.com/).
-
-=head1 AUTHORS
-
-=over 4
-
-=item *
-
-particle <particle@cpan.org>
-
-=item *
+=head1 AUTHOR
 
 Caleb Cushing <xenoterracide@gmail.com>
 
-=back
-
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2002 by Ars ex Machina, Corp..
+This software is Copyright (c) 2011 by Caleb Cushing.
 
 This is free software, licensed under:
 
-  The Artistic License 1.0
+  The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
-
-__END__
-
-# ABSTRACT: check for VERSION information in modules
 

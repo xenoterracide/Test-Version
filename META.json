@@ -1,13 +1,12 @@
 {
-   "abstract" : "check for VERSION information in modules",
+   "abstract" : "Check to see that a valid version exists in modules",
    "author" : [
-      "particle <particle@cpan.org>",
       "Caleb Cushing <xenoterracide@gmail.com>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930",
    "license" : [
-      "artistic_1"
+      "artistic_2"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -16,8 +15,7 @@
    "name" : "Test-Version",
    "no_index" : {
       "directory" : [
-         "corpus",
-         "t/version"
+         "corpus"
       ],
       "file" : [
          "perlcritic.rc"
@@ -31,19 +29,26 @@
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
-            "Exporter" : "5.562",
-            "Test::Builder" : "0.17",
-            "perl" : "5.006_001"
+            "Exporter" : 0,
+            "File::Find::Rule::Perl" : 0,
+            "Module::Extract::VERSION" : 0,
+            "Test::Builder" : 0,
+            "Test::More" : 0,
+            "boolean" : 0,
+            "parent" : 0,
+            "perl" : "5.006",
+            "version" : "0.77"
          }
       },
       "test" : {
          "requires" : {
+            "Carp" : 0,
+            "English" : 0,
             "File::Find" : 0,
             "File::Temp" : 0,
             "Scalar::Util" : 0,
-            "Test::More" : "0.94",
-            "vars" : 0
+            "Test::Builder::Tester" : 0,
+            "Test::More" : "0.94"
          }
       }
    },
@@ -58,6 +63,6 @@
          "web" : "http://github.com/xenoterracide/Test-Version"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
 

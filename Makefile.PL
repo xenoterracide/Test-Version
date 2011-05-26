@@ -2,35 +2,42 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.006_001; }
+BEGIN { require 5.006; }
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'check for VERSION information in modules',
-  'AUTHOR' => 'particle <particle@cpan.org>, Caleb Cushing <xenoterracide@gmail.com>',
+  'ABSTRACT' => 'Check to see that a valid version exists in modules',
+  'AUTHOR' => 'Caleb Cushing <xenoterracide@gmail.com>',
   'BUILD_REQUIRES' => {
+    'Carp' => '0',
+    'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
     'Scalar::Util' => '0',
-    'Test::More' => '0.94',
-    'vars' => '0'
+    'Test::Builder::Tester' => '0',
+    'Test::More' => '0.94'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Test-Version',
   'EXE_FILES' => [],
-  'LICENSE' => 'artistic',
+  'LICENSE' => 'artistic_2',
   'NAME' => 'Test::Version',
   'PREREQ_PM' => {
-    'Carp' => '0',
-    'Exporter' => '5.562',
-    'Test::Builder' => '0.17'
+    'Exporter' => '0',
+    'File::Find::Rule::Perl' => '0',
+    'Module::Extract::VERSION' => '0',
+    'Test::Builder' => '0',
+    'Test::More' => '0',
+    'boolean' => '0',
+    'parent' => '0',
+    'version' => '0.77'
   },
-  'VERSION' => '0.03',
+  'VERSION' => '0.04',
   'test' => {
     'TESTS' => 't/*.t'
   }

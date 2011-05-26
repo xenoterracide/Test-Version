@@ -1,74 +1,30 @@
 NAME
-    Test::Version - check for VERSION information in modules
+    Test::Version - Check to see that a valid version exists in modules
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
+            use Test::More;
             use Test::Version;
 
-            my $file = 'path/to/file.pm';
+            # test blib or lib by default
+            version_all_ok;
 
-            version_ok( $file );
+            done_testing;
 
 DESCRIPTION
-    Check files for VERSION information in perl modules. Inspired by brian d
-    foy's Test::Pod (see Test::Pod).
+METHODS
+    version_ok
+    version_all_ok
 
-ANNOUNCEMENT
-    IMPORTANT: This is alpha software, that was originally released in 2002.
-    This is the last release of this module based on this code, the next
-    release of Test::Version will be a rewrite from the ground up and will
-    contain API changes. This version was released to notify of new
-    maintainership and coming changes without breaking API. No functional
-    code changes were made to this module in this relaease.
-
-FUNCTIONS
-    version_ok( FILENAME, [EXPECTED, [NAME] ] )
-        Deprecation Note: EXPECTED is going away and the returns are are
-        changing. simply calling "version_ok( $filename );" should still
-        work, however it will be stricter in future versions by checking for
-        version validity.
-
-        version_ok requires a filename and returns one of the three values:
-
-            NO_FILE       Could not find the file
-            NO_VERSION    File had no VERSION information
-            VERSION_OK    VERSION information exists
-
-        version_ok okays a test without an expected result if it finds
-        VERSION information, or if an expected result is specified and it
-        finds that condition. For instance, if you know there is no VERSION
-        information,
-
-            version_ok( $file, NO_VERSION );
-
-        When it fails, version_ok will show error information.
-
-        The optional third argument NAME is the name of the test which
-        version_ok passes through to Test::Builder. Otherwise, it choose a
-        default test name "VERSION test for FILENAME".
-
-CAVEATS
-    Currently only checks files ending in '.pm', and expects the package
-    name to match the filename. I'm open to suggestions for more robust
-    parsing.
-
-CREDITS
-    Thanks to brian d foy for the inspiration -- his Test::Pod module (on
-    which this code is based,) and his "Better Documentation Through
-    Testing" article in The Perl Journal, Nov 2002 (see
-    http://www.tpj.com/).
-
-AUTHORS
-    *   particle <particle@cpan.org>
-
-    *   Caleb Cushing <xenoterracide@gmail.com>
+AUTHOR
+    Caleb Cushing <xenoterracide@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is Copyright (c) 2002 by Ars ex Machina, Corp..
+    This software is Copyright (c) 2011 by Caleb Cushing.
 
     This is free software, licensed under:
 
-      The Artistic License 1.0
+      The Artistic License 2.0 (GPL Compatible)
 
