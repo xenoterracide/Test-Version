@@ -10,7 +10,6 @@ lib/Test/Version.pm
 t/00-compile.t
 t/000-report-versions.t
 t/check_version.t
-t/load.t
 t/release-cpan-changes.t
 t/release-dist-manifest.t
 t/release-distmeta.t
