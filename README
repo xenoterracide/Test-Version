@@ -30,7 +30,7 @@ METHODS
 
 CREDITS
     Special thanks to particle <particle@cpan.org> for the original
-    "Test::Version" and giving me maintainership.
+    "Test::Version" and letting me maintain it further.
 
 AUTHORS
     *   Caleb Cushing <xenoterracide@gmail.com>
