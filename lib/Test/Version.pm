@@ -34,9 +34,9 @@ sub version_ok
     my( $file, $expected, $name ) = @_;
     $expected ||= OK;
     $name ||= qq{VERSION test for $file};
-    
+
     my $status = _check_version( $file );
-            
+
     if( defined $expected and $expected eq $status )
     {
         $Test->ok( 1, $name )
@@ -65,15 +65,15 @@ sub version_ok
 sub _check_version
 {
     my $file = shift;
-    
+
     return NO_FILE unless -e $file
         and $file =~ m/(.+)\.pm\z/;
 
     require $file;
-    
+
     my $package = $1;
     $package =~ s/\//::/g;
-    
+
     no strict 'refs';
     my $output = ${ $package . '::VERSION' };
     use strict 'refs';
@@ -81,7 +81,7 @@ sub _check_version
     return NO_VERSION unless $output;
     return OK;
 }
-        
+
 
 $_ ^=~ { module => q{Test::Version}, author => q{particle} };
 
