@@ -4,16 +4,12 @@ NAME
 VERSION
     version 0.03
 
-  VERSION
-    This document describes version 0.02 of Test::Version, released 18
-    November 2002.
-
   SYNOPSIS
-    use Test::Version;
+            use Test::Version;
 
-    plan tests => $num_tests;
+            plan tests => $num_tests;
 
-    version_ok( $file );
+            version_ok( $file );
 
   DESCRIPTION
     THIS IS ALPHA SOFTWARE.
@@ -53,25 +49,11 @@ VERSION
     version of Perl, and the name and version of the operating system you
     are using.
 
-  AUTHOR
-    particle, <particle@cpan.org>
-
-  COPYRIGHT
-    Copyright 2002, Ars ex Machina, Corp. All rights reserved.
-
-    This package is free software and is provided "as is" without express or
-    implied warranty. It may be used, redistributed and/or modified under
-    the terms of the Perl Artistic License (see
-    http://www.perl.com/perl/misc/Artistic.html)
-
   CREDITS
     Thanks to brian d foy for the inspiration -- his Test::Pod module (on
     which this code is based,) and his "Better Documentation Through
     Testing" article in The Perl Journal, Nov 2002 (see
     http://www.tpj.com/).
-
-  SEE ALSO
-    Test::Pod
 
 AUTHOR
     particle, <particle@cpan.org>
@@ -82,11 +64,4 @@ COPYRIGHT AND LICENSE
     This is free software, licensed under:
 
       The Artistic License 1.0
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 145:
-        You forgot a '=back' before '=head2'
 
