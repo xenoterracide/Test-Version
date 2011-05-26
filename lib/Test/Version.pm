@@ -75,7 +75,7 @@ sub version_all_ok {
 }
 1;
 
-# ABSTRACT: Check to see that a valid version exists in modules
+# ABSTRACT: Check to see that version's in modules are sane
 
 
 __END__
@@ -83,7 +83,7 @@ __END__
 
 =head1 NAME
 
-Test::Version - Check to see that a valid version exists in modules
+Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
@@ -101,13 +101,24 @@ version 0.04
 
 =head1 DESCRIPTION
 
+This module's goal is to be a one stop shop for checking to see that your
+versions across your dist are sane. It currently checks to see that all pm's
+have a VERSION defined, and that it is a valid VERSION by the rules of the
+C<is_lax> function in L<version>.
+
 =head1 METHODS
 
 =over
 
-=item version_ok
+=item C<version_ok( $filename, [ $name ] );>
 
-=item version_all_ok
+Test a single C<.pm> file by passing a path to the function. Checks if the
+module has a version, and that it is valid with C<is_lax>.
+
+=item C<version_all_ok( [ $directory, [ $name ]] );>
+
+Test all modules in a directory with C<version_ok>. By default it will check
+C<blib> or C<lib> if you haven't passed it a directory.
 
 =back
 
