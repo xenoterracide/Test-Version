@@ -16,7 +16,8 @@
    "name" : "Test-Version",
    "no_index" : {
       "directory" : [
-         "corpus"
+         "corpus",
+         "t/version"
       ],
       "file" : [
          "perlcritic.rc"

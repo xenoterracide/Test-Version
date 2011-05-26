@@ -21,6 +21,7 @@ name: Test-Version
 no_index:
   directory:
     - corpus
+    - t/version
   file:
     - perlcritic.rc
 requires:
