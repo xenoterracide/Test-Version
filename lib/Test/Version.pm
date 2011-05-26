@@ -110,4 +110,9 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 =back
 
+=head1 CREDITS
+
+Special thanks to particle <particle@cpan.org> for the original
+C<Test::Version> and letting me maintain it further.
+
 =cut
