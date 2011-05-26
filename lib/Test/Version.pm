@@ -28,7 +28,7 @@ sub import
 
     $Test->exported_to( $caller );
 }
-    
+
 sub version_ok
 {
     my( $file, $expected, $name ) = @_;
