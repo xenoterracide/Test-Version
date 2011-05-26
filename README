@@ -7,8 +7,6 @@ VERSION
 SYNOPSIS
             use Test::Version;
 
-            plan tests => $num_tests;
-
             version_ok( $file );
 
 DESCRIPTION

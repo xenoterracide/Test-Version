@@ -101,8 +101,6 @@ version 0.03
 
 	use Test::Version;
 
-	plan tests => $num_tests;
-
 	version_ok( $file );
 
 =head1 DESCRIPTION
