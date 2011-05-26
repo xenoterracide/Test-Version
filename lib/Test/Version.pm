@@ -101,6 +101,8 @@ version 0.03
 
 	use Test::Version;
 
+	my $file = 'path/to/file.pm';
+
 	version_ok( $file );
 
 =head1 DESCRIPTION

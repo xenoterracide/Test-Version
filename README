@@ -7,6 +7,8 @@ VERSION
 SYNOPSIS
             use Test::Version;
 
+            my $file = 'path/to/file.pm';
+
             version_ok( $file );
 
 DESCRIPTION
