@@ -20,7 +20,8 @@ ANNOUNCEMENT
     This is the last release of this module based on this code, the next
     release of Test::Version will be a rewrite from the ground up and will
     contain API changes. This version was released to notify of new
-    maintainership and coming changes without breaking API.
+    maintainership and coming changes without breaking API. No functional
+    code changes were made to this module in this relaease.
 
 FUNCTIONS
     version_ok( FILENAME, [EXPECTED, [NAME] ] )

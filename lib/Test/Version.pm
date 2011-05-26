@@ -116,7 +116,8 @@ B<IMPORTANT:> This is alpha software, that was originally released in 2002. This
 last release of this module based on this code, the next release of
 L<Test::Version> will be a rewrite from the ground up and will contain API
 changes. This version was released to notify of new maintainership and coming
-changes without breaking API.
+changes without breaking API. No functional code changes were made to this
+module in this relaease.
 
 =head1 FUNCTIONS
 
