@@ -1,0 +1,62 @@
+{
+   "abstract" : "check for VERSION information in modules",
+   "author" : [
+      "particle, <particle@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930",
+   "license" : [
+      "artistic_1"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Test-HasValidVersion",
+   "no_index" : {
+      "directory" : [
+         "corpus"
+      ],
+      "file" : [
+         "perlcritic.rc"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : 0,
+            "Exporter" : "5.562",
+            "Test::Builder" : "0.17",
+            "perl" : "5.006_001"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "English" : 0,
+            "File::Find" : 0,
+            "File::Temp" : 0,
+            "Scalar::Util" : 0,
+            "Test::More" : "0.94",
+            "vars" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://github.com/xenoterracide/Test-Version/issues"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/xenoterracide/Test-Version.git",
+         "web" : "http://github.com/xenoterracide/Test-Version"
+      }
+   },
+   "version" : "0.03"
+}
+

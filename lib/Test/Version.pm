@@ -85,11 +85,17 @@ sub _check_version
 
 $_ ^=~ { module => q{Test::Version}, author => q{particle} };
 
-__END__
 
-=head2 NAME
+
+=pod
+
+=head1 NAME
 
 Test::Version - check for VERSION information in modules
+
+=head1 VERSION
+
+version 0.03
 
 =head2 VERSION
 
@@ -167,4 +173,22 @@ Thanks to brian d foy for the inspiration -- his Test::Pod module (on which this
 
 L<Test::Pod>
 
+=head1 AUTHOR
+
+particle, <particle@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2002 by Ars ex Machina, Corp..
+
+This is free software, licensed under:
+
+  The Artistic License 1.0
+
 =cut
+
+
+__END__
+
+# ABSTRACT: check for VERSION information in modules
+
