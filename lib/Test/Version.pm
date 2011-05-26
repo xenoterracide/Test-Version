@@ -111,9 +111,19 @@ version 0.04
 
 =back
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Caleb Cushing <xenoterracide@gmail.com>
+
+=item *
+
+Mike Doherty <doherty@cs.dal.ca>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
