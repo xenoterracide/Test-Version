@@ -28,6 +28,10 @@ METHODS
         Test all modules in a directory with "version_ok". By default it
         will check "blib" or "lib" if you haven't passed it a directory.
 
+CREDITS
+    Special thanks to particle <particle@cpan.org> for the original
+    "Test::Version" and giving me maintainership.
+
 AUTHORS
     *   Caleb Cushing <xenoterracide@gmail.com>
 

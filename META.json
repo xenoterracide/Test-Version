@@ -53,7 +53,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "http://github.com/xenoterracide/Test-Version/issues"

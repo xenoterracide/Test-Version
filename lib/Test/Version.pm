@@ -122,6 +122,11 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 =back
 
+=head1 CREDITS
+
+Special thanks to particle <particle@cpan.org> for the original
+C<Test::Version> and giving me maintainership.
+
 =head1 AUTHORS
 
 =over 4
