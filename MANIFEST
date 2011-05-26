@@ -5,7 +5,6 @@ META.json
 META.yml
 Makefile.PL
 README
-docs/SubmittingPatches.pod
 lib/Test/Version.pm
 t/00-compile.t
 t/000-report-versions.t
