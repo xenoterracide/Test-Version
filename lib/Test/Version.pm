@@ -97,7 +97,7 @@ Test::Version - check for VERSION information in modules
 
 version 0.03
 
-=head2 SYNOPSIS
+=head1 SYNOPSIS
 
 	use Test::Version;
 
@@ -105,14 +105,14 @@ version 0.03
 
 	version_ok( $file );
 
-=head2 DESCRIPTION
+=head1 DESCRIPTION
 
 THIS IS ALPHA SOFTWARE.
 
 Check files for VERSION information in perl modules.
 Inspired by brian d foy's Test::Pod (see L<Test::Pod>).
 
-=head2 FUNCTIONS
+=head1 FUNCTIONS
 
 =over 4
 
@@ -139,18 +139,11 @@ it choose a default test name "VERSION test for FILENAME".
 
 =back
 
-=head2 CAVEATS
+=head1 CAVEATS
 
 Currently only checks files ending in '.pm', and expects the package name to match the filename. I'm open to suggestions for more robust parsing.
 
-=head2 BUGS
-
-Likely so. Address bug reports and comments to: particle@cpan.org.
-When sending bug reports, please provide the version of Test::Version, the
-version of Perl, and the name and version of the operating system you are
-using.
-
-=head2 CREDITS
+=head1 CREDITS
 
 Thanks to brian d foy for the inspiration -- his Test::Pod module (on which this code is based,) and his "Better Documentation Through Testing" article in The Perl Journal, Nov 2002 (see http://www.tpj.com/).
 

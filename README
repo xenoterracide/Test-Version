@@ -4,20 +4,20 @@ NAME
 VERSION
     version 0.03
 
-  SYNOPSIS
+SYNOPSIS
             use Test::Version;
 
             plan tests => $num_tests;
 
             version_ok( $file );
 
-  DESCRIPTION
+DESCRIPTION
     THIS IS ALPHA SOFTWARE.
 
     Check files for VERSION information in perl modules. Inspired by brian d
     foy's Test::Pod (see Test::Pod).
 
-  FUNCTIONS
+FUNCTIONS
     version_ok( FILENAME, [EXPECTED, [NAME] ] )
         version_ok requires a filename and returns one of the three values:
 
@@ -38,18 +38,12 @@ VERSION
         version_ok passes through to Test::Builder. Otherwise, it choose a
         default test name "VERSION test for FILENAME".
 
-  CAVEATS
+CAVEATS
     Currently only checks files ending in '.pm', and expects the package
     name to match the filename. I'm open to suggestions for more robust
     parsing.
 
-  BUGS
-    Likely so. Address bug reports and comments to: particle@cpan.org. When
-    sending bug reports, please provide the version of Test::Version, the
-    version of Perl, and the name and version of the operating system you
-    are using.
-
-  CREDITS
+CREDITS
     Thanks to brian d foy for the inspiration -- his Test::Pod module (on
     which this code is based,) and his "Better Documentation Through
     Testing" article in The Perl Journal, Nov 2002 (see
