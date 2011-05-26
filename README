@@ -24,6 +24,11 @@ ANNOUNCEMENT
 
 FUNCTIONS
     version_ok( FILENAME, [EXPECTED, [NAME] ] )
+        Deprecation Note: EXPECTED is going away and the returns are are
+        changing. simply calling "version_ok( $filename );" should still
+        work, however it will be stricter in future versions by checking for
+        version validity.
+
         version_ok requires a filename and returns one of the three values:
 
             NO_FILE       Could not find the file
