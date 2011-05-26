@@ -2,6 +2,11 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+0.03      2011-05-26
+	- Maintainership passed to Caleb Cushing <xenoterracide@gmail.com>
+	- Deprecate "expected" parameter to version_ok
+	- Switch to Dist::Zilla for release management
+
 0.02	2002-11-18
 	- removed rogue 'plan' statement in Version.pm,
 	  which was causing test failure
