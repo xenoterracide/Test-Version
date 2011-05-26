@@ -107,10 +107,16 @@ version 0.03
 
 =head1 DESCRIPTION
 
-THIS IS ALPHA SOFTWARE.
-
 Check files for VERSION information in perl modules.
 Inspired by brian d foy's Test::Pod (see L<Test::Pod>).
+
+=head1 ANNOUNCEMENT
+
+B<IMPORTANT: > This is alpha software, that was originally released in 2002. This is the
+last release of this module based on this code, the next release of
+L<Test::Version> will be a rewrite from the ground up and will contain API
+changes. This version was released to notify of new maintainership and coming
+changes without breaking API.
 
 =head1 FUNCTIONS
 
