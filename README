@@ -16,7 +16,7 @@ SYNOPSIS
 DESCRIPTION
     This module's goal is to be a one stop shop for checking to see that
     your versions across your dist are sane. It currently checks to see that
-    all pm's have a VERSION defined, and that it is a valid VERSION by the
+    all pms have a VERSION defined, and that it is a valid VERSION by the
     rules of the "is_lax" function in version.
 
 METHODS
