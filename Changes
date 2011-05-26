@@ -2,6 +2,9 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+0.04      2011-05-26
+	- Release new codebase as a trial version
+
 0.03      2011-05-26
 	- Maintainership passed to Caleb Cushing <xenoterracide@gmail.com>
 	- Deprecate "expected" parameter to version_ok
