@@ -154,9 +154,19 @@ using.
 
 Thanks to brian d foy for the inspiration -- his Test::Pod module (on which this code is based,) and his "Better Documentation Through Testing" article in The Perl Journal, Nov 2002 (see http://www.tpj.com/).
 
-=head1 AUTHOR
+=head1 AUTHORS
 
-particle, <particle@cpan.org>
+=over 4
+
+=item *
+
+particle <particle@cpan.org>
+
+=item *
+
+Caleb Cushing <xenoterracide@gmail.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

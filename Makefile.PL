@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'check for VERSION information in modules',
-  'AUTHOR' => 'particle, <particle@cpan.org>',
+  'AUTHOR' => 'particle <particle@cpan.org>, Caleb Cushing <xenoterracide@gmail.com>',
   'BUILD_REQUIRES' => {
     'File::Find' => '0',
     'File::Temp' => '0',
@@ -21,10 +21,10 @@ my %WriteMakefileArgs = (
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.30'
   },
-  'DISTNAME' => 'Test-HasValidVersion',
+  'DISTNAME' => 'Test-Version',
   'EXE_FILES' => [],
   'LICENSE' => 'artistic',
-  'NAME' => 'Test::HasValidVersion',
+  'NAME' => 'Test::Version',
   'PREREQ_PM' => {
     'Carp' => '0',
     'Exporter' => '5.562',

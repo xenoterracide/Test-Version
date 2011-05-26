@@ -55,8 +55,10 @@ VERSION
     Testing" article in The Perl Journal, Nov 2002 (see
     http://www.tpj.com/).
 
-AUTHOR
-    particle, <particle@cpan.org>
+AUTHORS
+    *   particle <particle@cpan.org>
+
+    *   Caleb Cushing <xenoterracide@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2002 by Ars ex Machina, Corp..
