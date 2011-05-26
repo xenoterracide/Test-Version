@@ -3,7 +3,6 @@ abstract: 'check for VERSION information in modules'
 author:
   - 'particle, <particle@cpan.org>'
 build_requires:
-  English: 0
   File::Find: 0
   File::Temp: 0
   Scalar::Util: 0

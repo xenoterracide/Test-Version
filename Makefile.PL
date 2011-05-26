@@ -12,7 +12,6 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'check for VERSION information in modules',
   'AUTHOR' => 'particle, <particle@cpan.org>',
   'BUILD_REQUIRES' => {
-    'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
     'Scalar::Util' => '0',
