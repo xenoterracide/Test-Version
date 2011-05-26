@@ -102,9 +102,9 @@ version 0.04
 =head1 DESCRIPTION
 
 This module's goal is to be a one stop shop for checking to see that your
-versions across your dist are sane. It currently checks to see that all pms
-have a VERSION defined, and that it is a valid VERSION by the rules of the
-C<is_lax> function in L<version>.
+versions across your dist are sane. It currently checks to see that all Perl
+Modules have a VERSION defined, and that it is a valid VERSION by the rules of
+the C<is_lax> function in L<version>.
 
 =head1 METHODS
 
