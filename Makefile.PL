@@ -34,7 +34,6 @@ my %WriteMakefileArgs = (
     'Module::Extract::VERSION' => '0',
     'Test::Builder' => '0',
     'Test::More' => '0',
-    'boolean' => '0',
     'parent' => '0',
     'version' => '0.77'
   },
