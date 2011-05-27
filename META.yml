@@ -38,4 +38,4 @@ requires:
 resources:
   bugtracker: http://github.com/xenoterracide/Test-Version/issues
   repository: git://github.com/xenoterracide/Test-Version.git
-version: 0.04
+version: 0.05
