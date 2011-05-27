@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.06      2011-05-27
+
 0.05      2011-05-27
 	- switch to Test::Tester for some tests.
 	- update changelog for 0.04 due to leaving featurelist out

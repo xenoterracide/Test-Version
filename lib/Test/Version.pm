@@ -3,7 +3,7 @@ use 5.006;
 use strict;
 use warnings;
 BEGIN {
-	our $VERSION = '0.05'; # VERSION
+	our $VERSION = '0.06'; # VERSION
 }
 use parent 'Exporter';
 use Test::Builder;
@@ -86,7 +86,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
