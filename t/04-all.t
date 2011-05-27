@@ -16,13 +16,13 @@ cmp_results(
 	[
 		{
 			ok => 0,
-			name => 'validate VERSION in corpus/noversion/FooBar.pm',
-			diag => 'VERSION not defined in corpus/noversion/FooBar.pm',
+			name => 'validate VERSION in corpus/fail/FooBarBaz.pm',
+			diag => 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version',
 		},
 		{
 			ok => 0,
-			name => 'validate VERSION in corpus/fail/FooBarBaz.pm',
-			diag => 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version',
+			name => 'validate VERSION in corpus/noversion/FooBar.pm',
+			diag => 'VERSION not defined in corpus/noversion/FooBar.pm',
 		},
 		{
 			ok => 1,
