@@ -11,9 +11,9 @@ test_out(
 	'not ok 2 - validate VERSION in corpus/fail/FooBarBaz.pm',
 	'ok 3 - VERSION 1.0 in corpus/pass/Foo.pm is valid',
 );
-#test_fail(+5);
+test_fail(+4);
 test_diag( 'VERSION not defined in corpus/noversion/FooBar.pm' );
-#test_fail(+3);
+test_fail(+2);
 test_diag( 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version' );
 
 version_all_ok('corpus');
