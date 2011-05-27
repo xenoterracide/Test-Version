@@ -13,7 +13,7 @@ test_out(
 );
 test_fail(+5);
 test_diag( 'VERSION not defined in corpus/noversion/FooBar.pm' );
-test_fail(+2);
+test_fail(+3);
 test_diag( 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version' );
 
 version_all_ok('corpus');
