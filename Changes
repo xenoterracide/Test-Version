@@ -2,8 +2,15 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+0.05      2011-05-27
+	- switch to Test::Tester for some tests.
+	- update changelog for 0.04 due to leaving featurelist out
+
 0.04      2011-05-26
 	- Release new codebase as a trial version
+	- Ability to iterate through a directory checking versions with
+	  version_all_ok()
+	- validate versions with is_lax
 
 0.03      2011-05-26
 	- Maintainership passed to Caleb Cushing <xenoterracide@gmail.com>
