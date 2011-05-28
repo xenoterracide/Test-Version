@@ -20,12 +20,11 @@ foreach my $result ( @results ) {
 	push @oks, $result->{ok};
 }
 
+my @sorted = sort @oks;
 
 my @expected = ( 0, 0, 1 );
 
-is( @oks, @expected, 'test unsorted oks');
-
-my @sorted = sort @oks;
+note( 'unsorted oks: ', @oks );
 
 is( @sorted, @expected, 'test sorted oks' );
 done_testing;
