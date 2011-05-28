@@ -1,6 +1,10 @@
 Revision history for Test-Version
 
 0.06      2011-05-28
+	- update diag messages
+	- check that $file exists
+	- switch to Test::Tester exclusively
+	- fix 04-all.t from failing due to array order being random
 
 0.05      2011-05-27
 	- switch to Test::Tester for some tests.
