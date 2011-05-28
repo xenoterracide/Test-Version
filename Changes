@@ -1,6 +1,6 @@
 Revision history for Test-Version
 
-0.06      2011-05-27
+0.06      2011-05-28
 
 0.05      2011-05-27
 	- switch to Test::Tester for some tests.

@@ -24,6 +24,11 @@ METHODS
         Test a single ".pm" file by passing a path to the function. Checks
         if the module has a version, and that it is valid with "is_lax".
 
+        Returns the following diagnostics
+
+                NO_VERSION: $file           No version was found to exist in $file
+                NOT_VALID: $file $version   $version in $file is not "lax"
+
     "version_all_ok( [ $directory, [ $name ]] );"
         Test all modules in a directory with "version_ok". By default it
         will check "blib" or "lib" if you haven't passed it a directory.
