@@ -26,9 +26,15 @@ sub _get_version {
 sub version_ok {
 	my ( $file, $name ) = @_;
 
+	$name ||= "check version in $file";
+
+	unless ( $file and -e $file ) {
+		$test->ok( 0, $name );
+		$test->diag( "NO_FILE: $file" );
+	}
+
 	my $version = _get_version( $file );
 
-	$name ||= "check version in $file";
 
 	unless ( $version ) {
 		$test->ok( 0 , $name );
