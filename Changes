@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.07      2011-05-28
+
 0.06      2011-05-28
 	- update diag messages
 	- check that $file exists
