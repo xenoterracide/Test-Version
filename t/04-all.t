@@ -2,8 +2,9 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Tester tests => 13;
+use Test::Tester;
 use Test::Version qw( version_all_ok );
+use Test::More;
 
 my ( $premature, @results ) = run_tests(
 	sub {
@@ -11,24 +12,20 @@ my ( $premature, @results ) = run_tests(
 	}
 );
 
-cmp_results(
-	[ @results ],
-	[
-		{
-			ok => 0,
-			name => 'validate VERSION in corpus/fail/FooBarBaz.pm',
-			diag => 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version',
-		},
-		{
-			ok => 0,
-			name => 'validate VERSION in corpus/noversion/FooBar.pm',
-			diag => 'VERSION not defined in corpus/noversion/FooBar.pm',
-		},
-		{
-			ok => 1,
-			name => 'VERSION 1.0 in corpus/pass/Foo.pm is valid',
-			diag => '',
-		},
-	],
-	'test version_all_ok',
-);
+is( scalar(@results), 3, 'correct number of results' );
+
+my @oks;
+
+foreach my $result ( @results ) {
+	push @oks, $result->{ok};
+}
+
+
+my @expected = ( 0, 0, 1 );
+
+is( @oks, @expected, 'test unsorted oks');
+
+my @sorted = sort @oks;
+
+is( @sorted, @expected, 'test sorted oks' );
+done_testing;

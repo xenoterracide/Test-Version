@@ -2,15 +2,17 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Builder::Tester;
-use Test::More;
+use Test::Tester tests => 7;
 use Test::Version qw( version_ok );
 
-test_out( 'not ok 1 - validate VERSION in corpus/fail/FooBarBaz.pm' );
-test_fail(+3);
-test_diag( 'VERSION in corpus/fail/FooBarBaz.pm is not a valid version' );
-
-version_ok( 'corpus/fail/FooBarBaz.pm' );
-
-test_test;
-done_testing;
+check_test(
+	sub {
+		version_ok( 'corpus/fail/FooBarBaz.pm' );
+	},
+	{
+		ok => 0,
+		name => 'check version in corpus/fail/FooBarBaz.pm',
+		diag => 'NOT_VALID: corpus/fail/FooBarBaz.pm',
+	},
+	'version invalid'
+);

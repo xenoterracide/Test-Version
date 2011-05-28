@@ -28,22 +28,23 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-	$name ||= "validate VERSION in $file";
+	$name ||= "check version in $file";
 
-	if ( not $version ) {
+	unless ( $version ) {
 		$test->ok( 0 , $name );
 		$test->diag( "NO_VERSION: $file" );
-		return;
+		return 3;
 	}
 
-	if ( is_lax( $version ) ) {
-		$test->ok( 1, "VERSION_OK: $file $version" );
-	}
-	else {
+	unless ( is_lax( $version ) ) {
 		$test->ok( 0, $name );
-		$test->diag( "NOT_VALID: $file $version" );
+		$test->diag( "NOT_VALID: $file" );
+		return 2;
 	}
-	return;
+
+	$test->ok( 1, $name );
+	$test->diag( "VERSION_OK: $file $version" );
+	return 1;
 }
 
 sub version_all_ok {
