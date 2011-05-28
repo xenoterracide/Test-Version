@@ -18,7 +18,7 @@ eval "use Test::Spelling";
 plan skip_all => "Test::Spelling required for testing POD spelling"
   if $@;
 
-set_spell_cmd('aspell list');
+
 add_stopwords(<DATA>);
 all_pod_files_spelling_ok('lib');
 __DATA__
