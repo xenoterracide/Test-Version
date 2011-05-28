@@ -2,13 +2,17 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Builder::Tester;
-use Test::More;
+use Test::Tester tests => 7;
 use Test::Version qw( version_ok );
 
-test_out( 'ok 1 - VERSION 1.0 in corpus/pass/Foo.pm is valid' );
-
-version_ok( 'corpus/pass/Foo.pm' );
-
-test_test;
-done_testing;
+check_test(
+	sub {
+		version_ok( 'corpus/pass/Foo.pm' );
+	},
+	{
+		ok => 1,
+		name => 'check version in corpus/pass/Foo.pm',
+		diag => 'VERSION_OK: corpus/pass/Foo.pm 1.0',
+	},
+	'version ok'
+);

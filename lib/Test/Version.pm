@@ -28,22 +28,23 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-	$name ||= "validate VERSION in $file";
+	$name ||= "check version in $file";
 
-	if ( not $version ) {
+	unless ( $version ) {
 		$test->ok( 0 , $name );
-		$test->diag( "VERSION not defined in $file" );
-		return;
+		$test->diag( "NO_VERSION: $file" );
+		return 3;
 	}
 
-	if ( is_lax( $version ) ) {
-		$test->ok( 1, "VERSION $version in $file is valid" );
-	}
-	else {
+	unless ( is_lax( $version ) ) {
 		$test->ok( 0, $name );
-		$test->diag( "VERSION in $file is not a valid version" );
+		$test->diag( "NOT_VALID: $file" );
+		return 2;
 	}
-	return;
+
+	$test->ok( 1, $name );
+	$test->diag( "VERSION_OK: $file $version" );
+	return 1;
 }
 
 sub version_all_ok {
@@ -101,6 +102,11 @@ the C<is_lax> function in L<version>.
 
 Test a single C<.pm> file by passing a path to the function. Checks if the
 module has a version, and that it is valid with C<is_lax>.
+
+Returns the following diagnostics
+
+	NO_VERSION: $file           No version was found to exist in $file
+	NOT_VALID: $file $version   $version in $file is not "lax"
 
 =item C<version_all_ok( [ $directory, [ $name ]] );>
 
