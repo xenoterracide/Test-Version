@@ -49,8 +49,7 @@ sub version_ok {
 		return 2;
 	}
 
-	$test->ok( 1, $name );
-	$test->diag( "VERSION_OK: $file $version" );
+	$test->ok( 1, "VERSION_OK: $file $version" );
 	return 1;
 }
 
