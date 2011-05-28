@@ -31,6 +31,7 @@ sub version_ok {
 	unless ( $file and -e $file ) {
 		$test->ok( 0, $name );
 		$test->diag( "NO_FILE: $file" );
+		return 4;
 	}
 
 	my $version = _get_version( $file );
