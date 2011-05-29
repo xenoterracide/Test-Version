@@ -23,8 +23,7 @@ DESCRIPTION
 
     module has a valid version
         Tests to insure that all versions are valid, according to the rules
-        of "How to check for a legal version string" in version method
-        "is_lax". To quote:
+        of version method "is_lax". To quote:
 
         *The lax criteria corresponds to what is currently allowed by the
         version parser. All of the following formats are acceptable for

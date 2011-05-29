@@ -120,7 +120,7 @@ L<Test::HasVersion>
 =item module has a valid version
 
 Tests to insure that all versions are valid, according to the rules of
-L<version/"How to check for a legal version string"> method C<is_lax>. To quote:
+L<version> method C<is_lax>. To quote:
 
 I<The lax criteria corresponds to what is currently allowed by the version
 parser. All of the following formats are acceptable for dotted-decimal formats
