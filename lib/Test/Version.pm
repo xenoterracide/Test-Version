@@ -89,7 +89,7 @@ sub version_all_ok {
 	use Test::Version;
 
 	# test blib or lib by default
-	version_all_ok;
+	version_all_ok();
 
 	done_testing;
 
@@ -121,6 +121,11 @@ Test all modules in a directory with C<version_ok>. By default it will check
 C<blib> or C<lib> if you haven't passed it a directory.
 
 =back
+
+=head1 BUGS AND LIMITATIONS
+
+Will not test Perl 5.12 C<package> version declartions because
+L<Module::Extract::VERSION> can't extract them yet.
 
 =head1 CREDITS
 
