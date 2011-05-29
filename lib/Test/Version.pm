@@ -124,7 +124,7 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 =head1 BUGS AND LIMITATIONS
 
-Will not test Perl 5.12 C<package> version declartions because
+Will not test Perl 5.12 C<package> version declarations because
 L<Module::Extract::VERSION> can't extract them yet.
 
 =head1 CREDITS
