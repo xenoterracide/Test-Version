@@ -111,6 +111,7 @@ module has a version, and that it is valid with C<is_lax>.
 
 Returns the following diagnostics
 
+	NO_FILE: $file				$file either not defined or doesn't exist
 	NO_VERSION: $file           No version was found to exist in $file
 	NOT_VALID: $file $version   $version in $file is not "lax"
 
