@@ -98,6 +98,8 @@ sub version_all_ok {
 This module's goal is to be a one stop shop for checking to see that your
 versions across your dist are sane. Current feature list:
 
+=over
+
 =item module has a version
 
 Tests to insure that all modules checked have a VERSION defined, Can replace
@@ -105,8 +107,8 @@ L<Test::HasVersion>
 
 =item module has a valid version
 
-Tests to insure that all VERSIONs are valid, according to the ruls of
-L<version/How_to_check_for_a_legal_version_string>'s C<is_lax>. To quote:
+Tests to insure that all versions are valid, according to the rules of
+L<version> method C<is_lax>. To quote:
 
 I<The lax criteria corresponds to what is currently allowed by the version
 parser. All of the following formats are acceptable for dotted-decimal formats
@@ -117,6 +119,8 @@ strings:>
 	v1.23_4
 	1.2345
 	1.2345_01
+
+=back
 
 =head1 METHODS
 
