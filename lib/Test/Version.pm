@@ -117,7 +117,7 @@ L<Test::HasVersion>
 
 =item module has a valid version
 
-Tests to insure that all VERSIONs are valid, according to the ruls of
+Tests to insure that all versions are valid, according to the rules of
 L<version/How_to_check_for_a_legal_version_string>'s C<is_lax>. To quote:
 
 I<The lax criteria corresponds to what is currently allowed by the version
