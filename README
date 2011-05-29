@@ -35,7 +35,7 @@ METHODS
         will check "blib" or "lib" if you haven't passed it a directory.
 
 BUGS AND LIMITATIONS
-    Will not test Perl 5.12 "package" version declartions because
+    Will not test Perl 5.12 "package" version declarations because
     Module::Extract::VERSION can't extract them yet.
 
 CREDITS
