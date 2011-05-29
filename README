@@ -78,13 +78,3 @@ COPYRIGHT AND LICENSE
 
       The Artistic License 2.0 (GPL Compatible)
 
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 113:
-        '=item' outside of any '=over'
-
-    Around line 133:
-        You forgot a '=back' before '=head1'
-

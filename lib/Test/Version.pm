@@ -110,6 +110,8 @@ version 0.07
 This module's goal is to be a one stop shop for checking to see that your
 versions across your dist are sane. Current feature list:
 
+=over
+
 =item module has a version
 
 Tests to insure that all modules checked have a VERSION defined, Can replace
@@ -129,6 +131,8 @@ strings:>
 	v1.23_4
 	1.2345
 	1.2345_01
+
+=back
 
 =head1 METHODS
 
