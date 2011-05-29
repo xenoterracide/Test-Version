@@ -9,7 +9,7 @@ SYNOPSIS
             use Test::Version;
 
             # test blib or lib by default
-            version_all_ok;
+            version_all_ok();
 
             done_testing;
 
@@ -33,6 +33,10 @@ METHODS
     "version_all_ok( [ $directory, [ $name ]] );"
         Test all modules in a directory with "version_ok". By default it
         will check "blib" or "lib" if you haven't passed it a directory.
+
+BUGS AND LIMITATIONS
+    Will not test Perl 5.12 "package" version declartions because
+    Module::Extract::VERSION can't extract them yet.
 
 CREDITS
     Special thanks to particle <particle@cpan.org> for the original
