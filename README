@@ -15,9 +15,26 @@ SYNOPSIS
 
 DESCRIPTION
     This module's goal is to be a one stop shop for checking to see that
-    your versions across your dist are sane. It currently checks to see that
-    all Perl Modules have a VERSION defined, and that it is a valid VERSION
-    by the rules of the "is_lax" function in version.
+    your versions across your dist are sane. Current feature list:
+
+    module has a version
+        Tests to insure that all modules checked have a VERSION defined, Can
+        replace Test::HasVersion
+
+    module has a valid version
+        Tests to insure that all VERSIONs are valid, according to the ruls
+        of "How_to_check_for_a_legal_version_string" in version's "is_lax".
+        To quote:
+
+        *The lax criteria corresponds to what is currently allowed by the
+        version parser. All of the following formats are acceptable for
+        dotted-decimal formats strings:*
+
+                v1.2
+                1.2345.6
+                v1.23_4
+                1.2345
+                1.2345_01
 
 METHODS
     "version_ok( $filename, [ $name ] );"
@@ -38,7 +55,14 @@ BUGS AND LIMITATIONS
     Will not test Perl 5.12 "package" version declarations because
     Module::Extract::VERSION can't extract them yet.
 
-CREDITS
+SEE ALSO
+    The goal is to have the functionality of all of these.
+
+    Test::HasVersion
+    Test::ConsistentVersion
+    Test::GreaterVersion
+
+ACKNOWLEDGEMENTS
     Special thanks to particle <particle@cpan.org> for the original
     "Test::Version" and letting me maintain it further.
 
@@ -53,4 +77,14 @@ COPYRIGHT AND LICENSE
     This is free software, licensed under:
 
       The Artistic License 2.0 (GPL Compatible)
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 113:
+        '=item' outside of any '=over'
+
+    Around line 133:
+        You forgot a '=back' before '=head1'
 

@@ -108,9 +108,27 @@ version 0.07
 =head1 DESCRIPTION
 
 This module's goal is to be a one stop shop for checking to see that your
-versions across your dist are sane. It currently checks to see that all Perl
-Modules have a VERSION defined, and that it is a valid VERSION by the rules of
-the C<is_lax> function in L<version>.
+versions across your dist are sane. Current feature list:
+
+=item module has a version
+
+Tests to insure that all modules checked have a VERSION defined, Can replace
+L<Test::HasVersion>
+
+=item module has a valid version
+
+Tests to insure that all VERSIONs are valid, according to the ruls of
+L<version/How_to_check_for_a_legal_version_string>'s C<is_lax>. To quote:
+
+I<The lax criteria corresponds to what is currently allowed by the version
+parser. All of the following formats are acceptable for dotted-decimal formats
+strings:>
+
+	v1.2
+	1.2345.6
+	v1.23_4
+	1.2345
+	1.2345_01
 
 =head1 METHODS
 
@@ -139,7 +157,21 @@ C<blib> or C<lib> if you haven't passed it a directory.
 Will not test Perl 5.12 C<package> version declarations because
 L<Module::Extract::VERSION> can't extract them yet.
 
-=head1 CREDITS
+=head1 SEE ALSO
+
+The goal is to have the functionality of all of these.
+
+=over
+
+=item L<Test::HasVersion>
+
+=item L<Test::ConsistentVersion>
+
+=item L<Test::GreaterVersion>
+
+=back
+
+=head1 ACKNOWLEDGEMENTS
 
 Special thanks to particle <particle@cpan.org> for the original
 C<Test::Version> and letting me maintain it further.
