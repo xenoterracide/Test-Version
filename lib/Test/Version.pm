@@ -28,7 +28,13 @@ sub version_ok {
 
 	$name ||= "check version in $file";
 
-	unless ( $file and -e $file ) {
+	unless ( $file ) {
+		$test->ok( 0, $name ) {
+		$test->diag( "FILE_NOT_DEFINED" );
+		return 5;
+	}
+
+	unless ( -e $file ) {
 		$test->ok( 0, $name );
 		$test->diag( "NO_FILE: $file" );
 		return 4;
@@ -133,7 +139,8 @@ module has a version, and that it is valid with C<is_lax>.
 
 Returns the following diagnostics
 
-	NO_FILE: $file				$file either not defined or doesn't exist
+	FILE_NOT_DEFINED			no $file parameter passed to version_ok
+	NO_FILE: $file				$file doesn't exist
 	NO_VERSION: $file           No version was found to exist in $file
 	NOT_VALID: $file $version   $version in $file is not "lax"
 
