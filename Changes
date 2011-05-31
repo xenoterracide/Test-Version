@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.08      2011-05-31
+
 0.07      2011-05-29
 	- more documentation
 	- don't use diag for VERSION_OK status
