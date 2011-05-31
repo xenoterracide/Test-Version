@@ -28,6 +28,8 @@ sub version_ok {
 
 	$name ||= "check version in $file";
 
+	local $Test::Builder::Level = $Test::Builder::Level + 1; ## no critic (Variables::ProhibitPackageVars)
+
 	unless ( $file ) {
 		$test->ok( 0, $name );
 		$test->diag( "FILE_NOT_DEFINED" );
