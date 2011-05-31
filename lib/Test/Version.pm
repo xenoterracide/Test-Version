@@ -29,7 +29,7 @@ sub version_ok {
 	$name ||= "check version in $file";
 
 	unless ( $file ) {
-		$test->ok( 0, $name ) {
+		$test->ok( 0, $name );
 		$test->diag( "FILE_NOT_DEFINED" );
 		return 5;
 	}
