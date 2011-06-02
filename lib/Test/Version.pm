@@ -104,7 +104,7 @@ version 0.08
 =head1 SYNOPSIS
 
 	use Test::More;
-	use Test::Version;
+	use Test::Version 0.04;
 
 	# test blib or lib by default
 	version_all_ok();
@@ -114,7 +114,9 @@ version 0.08
 =head1 DESCRIPTION
 
 This module's goal is to be a one stop shop for checking to see that your
-versions across your dist are sane. Current feature list:
+versions across your dist are sane. Please ensure that you use version C<0.04>
+or later only, as earlier versions are old code and may not work correctly.
+Current feature list:
 
 =over
 
