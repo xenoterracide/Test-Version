@@ -1,6 +1,9 @@
 Revision history for Test-Version
 
 0.08      2011-06-04
+	- test NO_FILE and FILE_NOT_DEFINED
+	- document only use 0.04 or later
+	- fix 04-all.t test that compares the arrays
 
 0.07      2011-05-29
 	- more documentation
