@@ -14,5 +14,5 @@ check_test(
 		name => 'check version in ',
 		diag => 'FILE_NOT_DEFINED',
 	},
-	'$file not defined'
+	'file not defined'
 );
