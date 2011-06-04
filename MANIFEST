@@ -17,7 +17,6 @@ t/01-pass.t
 t/02-fail.t
 t/03-noversion.t
 t/04-no-file.t
-t/05-file-not-defined.t
 t/06-all.t
 t/author-critic.t
 t/release-cpan-changes.t
