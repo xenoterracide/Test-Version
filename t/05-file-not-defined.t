@@ -7,7 +7,6 @@ use Test::Version qw( version_ok );
 
 check_test(
 	sub {
-		no warnings;
 		version_ok;
 	},
 	{
@@ -15,5 +14,5 @@ check_test(
 		name => 'check version in ',
 		diag => 'FILE_NOT_DEFINED',
 	},
-	'file not defined'
+	'$file not defined'
 );
