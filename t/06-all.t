@@ -24,7 +24,7 @@ my $sorted = [ sort @oks ];
 
 my $expected = [ ( 0, 0, 1 ) ];
 
-diag( 'unsorted oks: ', @oks );
+note( 'unsorted oks: ', @oks );
 
 is_deeply( $sorted, $expected, 'oks are ok' );
 done_testing;
