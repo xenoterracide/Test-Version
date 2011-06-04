@@ -20,11 +20,11 @@ foreach my $result ( @results ) {
 	push @oks, $result->{ok};
 }
 
-my @sorted = sort @oks;
+my $sorted = [ sort @oks ];
 
-my @expected = ( 0, 0, 1 );
+my $expected = [ ( 0, 0, 1 ) ];
 
-note( 'unsorted oks: ', @oks );
+diag( 'unsorted oks: ', @oks );
 
-is( @sorted, @expected, 'test sorted oks' );
+is_deeply( $sorted, $expected, 'oks are ok' );
 done_testing;
