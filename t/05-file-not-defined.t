@@ -7,6 +7,7 @@ use Test::Version qw( version_ok );
 
 check_test(
 	sub {
+		no warnings;
 		version_ok;
 	},
 	{
