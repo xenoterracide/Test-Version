@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.09      2011-06-04
+
 0.08      2011-06-04
 	- test NO_FILE and FILE_NOT_DEFINED
 	- document only use 0.04 or later
