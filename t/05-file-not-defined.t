@@ -12,7 +12,7 @@ check_test(
 	{
 		ok => 0,
 		name => 'check version in ',
-		diag => 'FILE_NOT_DEFINED',
+		diag => 'No file passed to version_ok().',
 	},
 	'$file not defined'
 );

@@ -12,7 +12,7 @@ check_test(
 	{
 		ok => 0,
 		name => 'check version in corpus/nofile/nofile.pm',
-		diag => 'NO_FILE: corpus/nofile/nofile.pm',
+		diag => q['corpus/nofile/nofile.pm' doesn't exist.],
 	},
 	'no file'
 );
