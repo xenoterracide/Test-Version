@@ -25,7 +25,7 @@ sub _get_version {
 
 sub version_ok {
 	my ( $file, $name ) = @_;
-
+	$file ||= '';
 	$name ||= "check version in $file";
 
 	unless ( $file ) {
