@@ -11,7 +11,7 @@ check_test(
 	},
 	{
 		ok => 0,
-		name => 'check version in ',
+		name => q[check version in ''],
 		diag => 'No file passed to version_ok().',
 	},
 	'$file not defined'
