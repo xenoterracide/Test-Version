@@ -12,7 +12,7 @@ check_test(
 	{
 		ok => 0,
 		name => 'check version in corpus/noversion/FooBar.pm',
-		diag => 'NO_VERSION: corpus/noversion/FooBar.pm',
+		diag => q[No version was found in 'corpus/noversion/FooBar.pm'.],
 	},
 	'no version'
 );

@@ -30,13 +30,13 @@ sub version_ok {
 
 	unless ( $file ) {
 		$test->ok( 0, $name );
-		$test->diag( "FILE_NOT_DEFINED" );
+		$test->diag( "No file passed to version_ok()." );
 		return 0;
 	}
 
 	unless ( -e $file ) {
 		$test->ok( 0, $name );
-		$test->diag( "NO_FILE: $file" );
+		$test->diag( "'$file' doesn't exist." );
 		return 0;
 	}
 
@@ -45,13 +45,13 @@ sub version_ok {
 
 	unless ( $version ) {
 		$test->ok( 0 , $name );
-		$test->diag( "NO_VERSION: $file" );
+		$test->diag( "No version was found in '$file'." );
 		return 0;
 	}
 
 	unless ( is_lax( $version ) ) {
 		$test->ok( 0, $name );
-		$test->diag( "NOT_VALID: $file" );
+		$test->diag( "The version '$version' found in '$file' is invalid." );
 		return 0;
 	}
 
@@ -150,13 +150,6 @@ strings:>
 
 Test a single C<.pm> file by passing a path to the function. Checks if the
 module has a version, and that it is valid with C<is_lax>.
-
-Returns the following diagnostics
-
-	FILE_NOT_DEFINED			no $file parameter passed to version_ok
-	NO_FILE: $file				$file doesn't exist
-	NO_VERSION: $file           No version was found to exist in $file
-	NOT_VALID: $file $version   $version in $file is not "lax"
 
 =item C<version_all_ok( [ $directory, [ $name ]] );>
 
