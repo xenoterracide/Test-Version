@@ -31,13 +31,13 @@ sub version_ok {
 	unless ( $file ) {
 		$test->ok( 0, $name );
 		$test->diag( "FILE_NOT_DEFINED" );
-		return 5;
+		return 0;
 	}
 
 	unless ( -e $file ) {
 		$test->ok( 0, $name );
 		$test->diag( "NO_FILE: $file" );
-		return 4;
+		return 0;
 	}
 
 	my $version = _get_version( $file );
@@ -46,13 +46,13 @@ sub version_ok {
 	unless ( $version ) {
 		$test->ok( 0 , $name );
 		$test->diag( "NO_VERSION: $file" );
-		return 3;
+		return 0;
 	}
 
 	unless ( is_lax( $version ) ) {
 		$test->ok( 0, $name );
 		$test->diag( "NOT_VALID: $file" );
-		return 2;
+		return 0;
 	}
 
 	$test->ok( 1, "VERSION_OK: $file $version" );
