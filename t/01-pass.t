@@ -13,7 +13,7 @@ check_test(
 	},
 	{
 		ok => 1,
-		name => 'VERSION_OK: corpus/pass/Foo.pm 1.0',
+		name => q[check version in corpus/pass/Foo.pm],
 		diag => '',
 	},
 	'version ok'

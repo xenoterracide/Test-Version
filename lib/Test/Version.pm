@@ -55,7 +55,7 @@ sub version_ok {
 		return 0;
 	}
 
-	$test->ok( 1, "VERSION_OK: $file $version" );
+	$test->ok( 1, $name );
 	return 1;
 }
 
