@@ -3,7 +3,7 @@ use 5.006;
 use strict;
 use warnings;
 BEGIN {
-	our $VERSION = '0.09'; # VERSION
+	our $VERSION = '0.10'; # VERSION
 }
 use parent 'Exporter';
 use Test::Builder;
@@ -25,19 +25,19 @@ sub _get_version {
 
 sub version_ok {
 	my ( $file, $name ) = @_;
-
-	$name ||= "check version in $file";
+	$file ||= '';
+	$name ||= "check version in '$file'";
 
 	unless ( $file ) {
 		$test->ok( 0, $name );
-		$test->diag( "FILE_NOT_DEFINED" );
-		return 5;
+		$test->diag( "No file passed to version_ok()." );
+		return 0;
 	}
 
 	unless ( -e $file ) {
 		$test->ok( 0, $name );
-		$test->diag( "NO_FILE: $file" );
-		return 4;
+		$test->diag( "'$file' doesn't exist." );
+		return 0;
 	}
 
 	my $version = _get_version( $file );
@@ -45,17 +45,17 @@ sub version_ok {
 
 	unless ( $version ) {
 		$test->ok( 0 , $name );
-		$test->diag( "NO_VERSION: $file" );
-		return 3;
+		$test->diag( "No version was found in '$file'." );
+		return 0;
 	}
 
 	unless ( is_lax( $version ) ) {
 		$test->ok( 0, $name );
-		$test->diag( "NOT_VALID: $file" );
-		return 2;
+		$test->diag( "The version '$version' found in '$file' is invalid." );
+		return 0;
 	}
 
-	$test->ok( 1, "VERSION_OK: $file $version" );
+	$test->ok( 1, $name );
 	return 1;
 }
 
@@ -99,7 +99,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -150,13 +150,6 @@ strings:>
 
 Test a single C<.pm> file by passing a path to the function. Checks if the
 module has a version, and that it is valid with C<is_lax>.
-
-Returns the following diagnostics
-
-	FILE_NOT_DEFINED			no $file parameter passed to version_ok
-	NO_FILE: $file				$file doesn't exist
-	NO_VERSION: $file           No version was found to exist in $file
-	NOT_VALID: $file $version   $version in $file is not "lax"
 
 =item C<version_all_ok( [ $directory, [ $name ]] );>
 

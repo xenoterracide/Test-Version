@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.10      2011-06-08
+
 0.09      2011-06-07
 	- Test for FILE_NOT_DEFINED was not actually included in the last release.
 	  Add it.
