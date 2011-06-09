@@ -2,6 +2,13 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+0.10      2011-06-08
+	- fix warning on bad api call #1
+	- make diagnostics human readable #1
+	- remove diagnostics from pod #1
+	- change return values #1
+	- improve tests #1
+
 0.09      2011-06-07
 	- Test for FILE_NOT_DEFINED was not actually included in the last release.
 	  Add it.
