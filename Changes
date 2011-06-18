@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+0.11      2011-06-18
+
 0.10      2011-06-08
 	- fix warning on bad api call #1
 	- make diagnostics human readable #1

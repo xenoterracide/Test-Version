@@ -37,7 +37,7 @@
             "Test::More" : 0,
             "parent" : 0,
             "perl" : "5.006",
-            "version" : "0.77"
+            "version" : "0.86"
          }
       },
       "test" : {
@@ -63,6 +63,6 @@
          "web" : "http://github.com/xenoterracide/Test-Version"
       }
    },
-   "version" : "0.10"
+   "version" : "0.11"
 }
 

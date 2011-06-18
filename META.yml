@@ -33,8 +33,8 @@ requires:
   Test::More: 0
   parent: 0
   perl: 5.006
-  version: 0.77
+  version: 0.86
 resources:
   bugtracker: http://github.com/xenoterracide/Test-Version/issues
   repository: git://github.com/xenoterracide/Test-Version.git
-version: 0.10
+version: 0.11

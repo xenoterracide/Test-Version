@@ -3,11 +3,11 @@ use 5.006;
 use strict;
 use warnings;
 BEGIN {
-	our $VERSION = '0.10'; # VERSION
+	our $VERSION = '0.11'; # VERSION
 }
 use parent 'Exporter';
 use Test::Builder;
-use version 0.77 qw( is_lax );
+use version 0.86 qw( is_lax );
 use File::Find::Rule::Perl;
 use Module::Extract::VERSION;
 use Test::More;
@@ -99,7 +99,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 
