@@ -167,7 +167,9 @@ The goal is to have the functionality of all of these.
 
 =head1 ACKNOWLEDGEMENTS
 
-Special thanks to particle <particle@cpan.org> for the original
-C<Test::Version> and letting me maintain it further.
+Special thanks to particle C<particle at cpan dot org> for the original
+C<Test::Version> and letting me maintain it further. Thanks to Mike Doherty
+C<doherty at cs dot dal dot ca>, and Michael G. Schwern C<schwern at pobox dot
+com> for their patches.
 
 =cut
