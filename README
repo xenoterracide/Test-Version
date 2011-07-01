@@ -2,7 +2,7 @@ NAME
     Test::Version - Check to see that version's in modules are sane
 
 VERSION
-    version 0.11
+    version 1.0.0
 
 SYNOPSIS
             use Test::More;

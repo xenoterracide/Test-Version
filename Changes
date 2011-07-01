@@ -1,5 +1,10 @@
 Revision history for Test-Version
 
+1.0.0     2011-07-01
+	- Change to Semantic Versioning
+	- Consider API Stable
+	- No real changes since version 0.11
+
 0.11      2011-06-18
 	- correct the version of version.pm that we need to depend on. is_lax was
 	  not properly exported until version 0.86
