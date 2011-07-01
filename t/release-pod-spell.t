@@ -27,5 +27,3 @@ SubmittingPatches
 ACKNOWLEDGEMENTS
 Caleb
 Cushing
-Mike
-Doherty

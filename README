@@ -58,13 +58,13 @@ SEE ALSO
     Test::GreaterVersion
 
 ACKNOWLEDGEMENTS
-    Special thanks to particle <particle@cpan.org> for the original
-    "Test::Version" and letting me maintain it further.
+    Special thanks to particle "particle at cpan dot org" for the original
+    "Test::Version" and letting me maintain it further. Thanks to Mike
+    Doherty "doherty at cs dot dal dot ca", and Michael G. Schwern "schwern
+    at pobox dot com" for their patches.
 
-AUTHORS
-    *   Caleb Cushing <xenoterracide@gmail.com>
-
-    *   Mike Doherty <doherty@cs.dal.ca>
+AUTHOR
+    Caleb Cushing <xenoterracide@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2011 by Caleb Cushing.

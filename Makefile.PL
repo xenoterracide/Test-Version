@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'Check to see that version\'s in modules are sane',
-  'AUTHOR' => 'Caleb Cushing <xenoterracide@gmail.com>, Mike Doherty <doherty@cs.dal.ca>',
+  'AUTHOR' => 'Caleb Cushing <xenoterracide@gmail.com>',
   'BUILD_REQUIRES' => {
     'Carp' => '0',
     'English' => '0',
