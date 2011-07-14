@@ -3,7 +3,7 @@ use 5.006;
 use strict;
 use warnings;
 BEGIN {
-	our $VERSION = '1.0.0'; # VERSION
+	our $VERSION = '1.0.1'; # VERSION
 }
 use parent 'Exporter';
 use Test::Builder;
@@ -99,7 +99,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 1.0.0
+version 1.0.1
 
 =head1 SYNOPSIS
 
@@ -179,10 +179,10 @@ The goal is to have the functionality of all of these.
 
 =head1 ACKNOWLEDGEMENTS
 
-Special thanks to particle C<particle at cpan dot org> for the original
+Special thanks to particle C<<particle at cpan dot org>> for the original
 C<Test::Version> and letting me maintain it further. Thanks to Mike Doherty
-C<doherty at cs dot dal dot ca>, and Michael G. Schwern C<schwern at pobox dot
-com> for their patches.
+C<<doherty at cs dot dal dot ca>>, and Michael G. Schwern C<<schwern at pobox dot
+com>> for their patches.
 
 =head1 AUTHOR
 

@@ -2,7 +2,7 @@ NAME
     Test::Version - Check to see that version's in modules are sane
 
 VERSION
-    version 1.0.0
+    version 1.0.1
 
 SYNOPSIS
             use Test::More;
@@ -58,10 +58,10 @@ SEE ALSO
     Test::GreaterVersion
 
 ACKNOWLEDGEMENTS
-    Special thanks to particle "particle at cpan dot org" for the original
+    Special thanks to particle "<particle at cpan dot org"> for the original
     "Test::Version" and letting me maintain it further. Thanks to Mike
-    Doherty "doherty at cs dot dal dot ca", and Michael G. Schwern "schwern
-    at pobox dot com" for their patches.
+    Doherty "<doherty at cs dot dal dot ca">, and Michael G. Schwern
+    "<schwern at pobox dot com"> for their patches.
 
 AUTHOR
     Caleb Cushing <xenoterracide@gmail.com>
