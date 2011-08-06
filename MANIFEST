@@ -20,6 +20,7 @@ t/04-no-file.t
 t/05-file-not-defined.t
 t/06-all.t
 t/author-critic.t
+t/author-pod-spell.t
 t/release-cpan-changes.t
 t/release-dist-manifest.t
 t/release-distmeta.t
@@ -30,7 +31,6 @@ t/release-minimum-version.t
 t/release-mojibake.t
 t/release-pod-coverage.t
 t/release-pod-linkcheck.t
-t/release-pod-spell.t
 t/release-pod-syntax.t
 t/release-portability.t
 t/release-synopsis.t
