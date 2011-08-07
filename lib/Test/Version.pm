@@ -6,14 +6,17 @@ BEGIN {
 	# VERSION
 }
 use parent 'Exporter';
+use Env qw(TEST_VERSION_STRICTNESS);
 use Test::Builder;
-use version 0.86 qw( is_lax );
+use version 0.86 qw( is_lax is_strict );
 use File::Find::Rule::Perl;
 use Module::Extract::VERSION;
 use Test::More;
 
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
 our @EXPORT_OK = qw( version_ok );
+
+our $STRICTNESS = $TEST_VERSION_STRICTNESS ? $TEST_VERSION_STRICTNESS : 0;
 
 my $test = Test::Builder->new;
 
@@ -53,6 +56,21 @@ sub version_ok {
 		$test->ok( 0, $name );
 		$test->diag( "The version '$version' found in '$file' is invalid." );
 		return 0;
+	}
+
+	unless ( is_strict( $version ) ) {
+		if    ( $STRICTNESS == 0 ) {
+			$test->ok( 1, $name );
+		}
+		elsif ( $STRICTNESS == 1 ) {
+			$test->ok( 1, $name );
+			$test->diag( "The version '$version' found in '$file' is not strict." );
+		}
+		elsif ( $STRICTNESS == 2 ) {
+			$test->ok( 0, $name );
+			$test->diag( "The version '$version' found in '$file' is not strict." );
+		}
+		return 1;
 	}
 
 	$test->ok( 1, $name );
@@ -128,6 +146,16 @@ strings:>
 	1.2345
 	1.2345_01
 
+I<If you want to limit yourself to a much more narrow definition of what a
+version string constitutes, is_strict() is limited to version strings like the
+following list:>
+
+	v1.234.5
+	2.3456
+
+you can cause your tests to fail if not strict by setting L<STRICTNESS> to
+C<2>
+
 =back
 
 =head1 METHODS
@@ -146,7 +174,36 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 =back
 
-=head1 BUGS AND LIMITATIONS
+=head1 CONFIGURATION AND ENVIRONMENT
+
+
+=head2 C<STRICTNESS>
+
+this allows you to set how strict you want the version validity checking to
+be. you can set either the package variable C<$Test::Version::STRICTNESS;>
+or the environment variable C<TEST_VERSION_STRICTNESS>.
+
+=over
+
+=item * C<$Test::Version::STRICTNESS = 0; # default>
+
+
+This will not disable strict checking, but will simply result in a
+passing test even if the C<is_strict> fails.
+
+=item * C<$Test::Version::STRICTNESS = 1;>
+
+This will cause a diagnostic to print if your C<VERSION> is not
+strict. The test will still continue to pass. I<This will be the default in
+1.4.0.>
+
+=item * C<$Test::Version::STRICTNESS = 2;>
+
+This will cause the test to fail if your C<VERSION> is not C<is_strict>.
+
+=back
+
+=head1 LIMITATIONS
 
 Will not test Perl 5.12 C<package> version declarations because
 L<Module::Extract::VERSION> can't extract them yet.
