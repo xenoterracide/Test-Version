@@ -2,6 +2,10 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+v1.1.0    2011-08-14
+	- check if versions are strict
+	- provide STRICTNESS settings to decide what to do if they aren't strict
+
 1.0.0     2011-07-01
 	- Change to Semantic Versioning
 	- Consider API Stable
