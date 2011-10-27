@@ -2,9 +2,10 @@ package Test::Version;
 use 5.006;
 use strict;
 use warnings;
-BEGIN {
-	# VERSION
-}
+use Carp;
+
+# VERSION
+
 use parent 'Exporter';
 use Env qw( PERL_TEST_VERSION_IS_STRICT );
 use Test::Builder;
@@ -49,17 +50,9 @@ sub version_ok {
 	$file ||= '';
 	$name ||= "check version in '$file'";
 
-	unless ( $file ) {
-		$test->ok( 0, $name );
-		$test->diag( "No file passed to version_ok()." );
-		return 0;
-	}
+	croak 'No file passed to version_ok().' unless $file;
 
-	unless ( -e $file ) {
-		$test->ok( 0, $name );
-		$test->diag( "'$file' doesn't exist." );
-		return 0;
-	}
+	croak "'$file' doesn't exist." unless -e $file;
 
 	my $version = _get_version( $file );
 

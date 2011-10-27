@@ -2,17 +2,10 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Tester tests => 7;
+use Test::More;
+use Test::Exception;
 use Test::Version qw( version_ok );
 
-check_test(
-	sub {
-		version_ok;
-	},
-	{
-		ok => 0,
-		name => q[check version in ''],
-		diag => 'No file passed to version_ok().',
-	},
-	'$file not defined'
-);
+dies_ok { version_ok; } 'croak on bad api call';
+
+done_testing;
