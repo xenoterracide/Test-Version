@@ -4,10 +4,8 @@ use strict;
 use warnings;
 use Test::Tester;
 use Test::More;
-$Test::Version::STRICTNESS = 2;
-use Test::Version qw( version_ok );
+use Test::Version qw( version_ok ), { strict => '2' };
 
-is ( $Test::Version::STRICTNESS, 2, 'strictness set to 2' );
 my $ret;
 check_test(
 	sub {

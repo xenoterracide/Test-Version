@@ -6,7 +6,7 @@ BEGIN {
 	# VERSION
 }
 use parent 'Exporter';
-use Env qw(TEST_VERSION_STRICTNESS);
+use Env qw( PERL_TEST_VERSION_IS_STRICT );
 use Test::Builder;
 use version 0.86 qw( is_lax is_strict );
 use File::Find::Rule::Perl;
@@ -16,7 +16,25 @@ use Test::More;
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
 our @EXPORT_OK = qw( version_ok );
 
-our $STRICTNESS = $TEST_VERSION_STRICTNESS ? $TEST_VERSION_STRICTNESS : 0;
+my $cfg;
+
+sub import {
+	my @exports;
+	foreach my $param ( @_ ) {
+		unless ( ref( $param ) eq 'HASH' ) {
+			push @exports, $param;
+		} else {
+			$cfg = $param
+		}
+	}
+	__PACKAGE__->export_to_level( 1, @exports );
+}
+
+$cfg->{strict}
+	= $PERL_TEST_VERSION_IS_STRICT ? $PERL_TEST_VERSION_IS_STRICT
+	: $cfg->{strict}            ? $cfg->{strict}
+	:                             0
+	;
 
 my $test = Test::Builder->new;
 
@@ -59,14 +77,14 @@ sub version_ok {
 	}
 
 	unless ( is_strict( $version ) ) {
-		if    ( $STRICTNESS == 0 ) {
+		if    ( $cfg->{strict} == 0 ) {
 			$test->ok( 1, $name );
 		}
-		elsif ( $STRICTNESS == 1 ) {
+		elsif ( $cfg->{strict} == 1 ) {
 			$test->ok( 1, $name );
 			$test->diag( "The version '$version' found in '$file' is not strict." );
 		}
-		elsif ( $STRICTNESS == 2 ) {
+		elsif ( $cfg->{strict} == 2 ) {
 			$test->ok( 0, $name );
 			$test->diag( "The version '$version' found in '$file' is not strict." );
 		}
