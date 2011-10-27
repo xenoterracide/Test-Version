@@ -2,12 +2,10 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Tester;
 use Test::More;
-$Test::Version::STRICTNESS = 1;
-use Test::Version qw( version_ok );
+use Test::Tester;
+use Test::Version qw( version_ok ), { strict => 1 };
 
-is ( $Test::Version::STRICTNESS, 1, 'strictness set to 1' );
 my $ret;
 check_test(
 	sub {
@@ -21,4 +19,5 @@ check_test(
 );
 
 ok $ret, "version_ok() diaged unless strict";
+
 done_testing;
