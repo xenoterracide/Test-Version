@@ -7,7 +7,7 @@ use Carp;
 # VERSION
 
 use parent 'Exporter';
-use Env qw( PERL_TEST_VERSION_IS_STRICT );
+use Env qw( PERL_TEST_VERSION_IS_STRICT PERL_TEST_VERSION_HAS_VERSION );
 use Test::Builder;
 use version 0.86 qw( is_lax is_strict );
 use File::Find::Rule::Perl;
@@ -37,6 +37,12 @@ $cfg->{is_strict}
 	:                             0
 	;
 
+$cfg->{has_version}
+	= $PERL_TEST_VERSION_HAS_VERSION ? $PERL_TEST_VERSION_HAS_VERSION
+	: $cfg->{has_version}            ? $cfg->{has_version}
+	:                                  1
+	;
+
 sub _get_version {
 	my $pm = shift;
 	return my $version
@@ -55,6 +61,16 @@ sub version_ok {
 	my $version = _get_version( $file );
 
 	my $test = Test::Builder->new;
+
+	if ( not $version and not $cfg->{has_version} ) {
+		$test->skip( 'No version was found in "'
+			. $file
+			. '" and has_version is false'
+			)
+			;
+
+		return 1;
+	}
 
 	unless ( $version ) {
 		$test->ok( 0 , $name );
