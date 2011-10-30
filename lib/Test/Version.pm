@@ -56,7 +56,6 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-
 	unless ( $version ) {
 		$test->ok( 0 , $name );
 		$test->diag( "No version was found in '$file'." );
@@ -70,18 +69,11 @@ sub version_ok {
 	}
 
 	unless ( is_strict( $version ) ) {
-		if    ( $cfg->{strict} == 0 ) {
-			$test->ok( 1, $name );
-		}
-		elsif ( $cfg->{strict} == 1 ) {
-			$test->ok( 1, $name );
-			$test->diag( "The version '$version' found in '$file' is not strict." );
-		}
-		elsif ( $cfg->{strict} == 2 ) {
+		if ( $cfg->{strict} ) {
 			$test->ok( 0, $name );
 			$test->diag( "The version '$version' found in '$file' is not strict." );
+			return 0;
 		}
-		return 1;
 	}
 
 	$test->ok( 1, $name );
