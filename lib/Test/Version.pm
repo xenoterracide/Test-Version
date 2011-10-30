@@ -15,7 +15,7 @@ use Module::Extract::VERSION;
 use Test::More;
 
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
-our @EXPORT_OK = qw( version_ok );
+our @EXPORT_OK = qw( version_ok is_lax is_strict );
 
 my $cfg;
 
