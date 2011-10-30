@@ -19,7 +19,7 @@ our @EXPORT_OK = qw( version_ok is_lax is_strict );
 
 my $cfg;
 
-sub import {
+sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::RequireFinalReturn )
 	my @exports;
 	foreach my $param ( @_ ) {
 		unless ( ref( $param ) eq 'HASH' ) {
