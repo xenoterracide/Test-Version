@@ -37,8 +37,6 @@ $cfg->{is_strict}
 	:                             0
 	;
 
-my $test = Test::Builder->new;
-
 sub _get_version {
 	my $pm = shift;
 	return my $version
@@ -55,6 +53,8 @@ sub version_ok {
 	croak "'$file' doesn't exist." unless -e $file;
 
 	my $version = _get_version( $file );
+
+	my $test = Test::Builder->new;
 
 	unless ( $version ) {
 		$test->ok( 0 , $name );
