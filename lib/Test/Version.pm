@@ -31,9 +31,9 @@ sub import {
 	__PACKAGE__->export_to_level( 1, @exports );
 }
 
-$cfg->{strict}
+$cfg->{is_strict}
 	= $PERL_TEST_VERSION_IS_STRICT ? $PERL_TEST_VERSION_IS_STRICT
-	: $cfg->{strict}            ? $cfg->{strict}
+	: $cfg->{is_strict}            ? $cfg->{is_strict}
 	:                             0
 	;
 
@@ -68,8 +68,8 @@ sub version_ok {
 		return 0;
 	}
 
-	unless ( is_strict( $version ) ) {
-		if ( $cfg->{strict} ) {
+	if ( $cfg->{is_strict} ) {
+		unless ( is_strict( $version ) ) {
 			$test->ok( 0, $name );
 			$test->diag( "The version '$version' found in '$file' is not strict." );
 			return 0;
