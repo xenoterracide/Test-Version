@@ -89,16 +89,13 @@ sub version_all_ok {
 		:                'lib'
 		;
 
+	croak $dir . 'does not exist, or is not a directory' unless -d $dir;
+
 	# Report failure location correctly - GH #1
 	local $Test::Builder::Level = $Test::Builder::Level + 1; ## no critic (Variables::ProhibitPackageVars)
 
 	$name ||= "all modules in $dir have valid versions";
 
-	unless ( -d $dir ) {
-		$test->ok( 0, $name );
-		$test->diag( "$dir does not exist, or is not a directory" );
-		return;
-	}
 	my @files = File::Find::Rule->perl_module->in( $dir );
 
 	foreach my $file ( @files ) {
