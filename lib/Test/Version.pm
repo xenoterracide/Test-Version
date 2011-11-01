@@ -190,7 +190,7 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 =setting has_version
 
-	use Test::Version qw( version_all_ok ) { has_version => 0 }
+	use Test::Version qw( version_all_ok ), { has_version => 0 };
 
 Allows disabling whether a module has to have a version. If set to 0
 version tests will be skipped in any module where no version is found.
@@ -199,7 +199,7 @@ really doesn't make sense to use with just L<version_ok>
 
 =setting is_strict
 
-	use Test::Version { is_strict => 1 }
+	use Test::Version { is_strict => 1 };
 
 this allows enabling of L<version>s C<is_strict> checks to ensure that your
 version is strict.
