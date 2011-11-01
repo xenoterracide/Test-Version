@@ -124,8 +124,8 @@ sub version_all_ok {
 
 	use Test::More;
 	use Test::Version 1.001001 qw( version_ok ), {
-			is_ strict  => 1,
-			has_version => 0
+			is_strict   => 0,
+			has_version => 1,
 		};
 
 	# test blib or lib by default
