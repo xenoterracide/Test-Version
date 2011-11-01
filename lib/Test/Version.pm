@@ -7,7 +7,6 @@ use Carp;
 # VERSION
 
 use parent 'Exporter';
-use Env qw( PERL_TEST_VERSION_IS_STRICT PERL_TEST_VERSION_HAS_VERSION );
 use Test::Builder;
 use version 0.86 qw( is_lax is_strict );
 use File::Find::Rule::Perl;
@@ -32,15 +31,13 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 }
 
 $cfg->{is_strict}
-	= $PERL_TEST_VERSION_IS_STRICT ? $PERL_TEST_VERSION_IS_STRICT
-	: $cfg->{is_strict}            ? $cfg->{is_strict}
-	:                             0
+	= $cfg->{is_strict} ? $cfg->{is_strict}
+	:                     0
 	;
 
 $cfg->{has_version}
-	= $PERL_TEST_VERSION_HAS_VERSION ? $PERL_TEST_VERSION_HAS_VERSION
-	: $cfg->{has_version}            ? $cfg->{has_version}
-	:                                  1
+	= $cfg->{has_version} ? $cfg->{has_version}
+	:                       1
 	;
 
 sub _get_version {
