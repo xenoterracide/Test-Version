@@ -169,7 +169,7 @@ following list:>
 	v1.234.5
 	2.3456
 
-you can cause your tests to fail if not strict by setting L<STRICTNESS> to
+you can cause your tests to fail if not strict by setting L<is_strict> to
 C<2>
 
 =back
