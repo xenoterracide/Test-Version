@@ -123,7 +123,10 @@ sub version_all_ok {
 =head1 SYNOPSIS
 
 	use Test::More;
-	use Test::Version 0.04;
+	use Test::Version 1.001001 qw( version_ok ), {
+			is_ strict  => 1,
+			has_version => 0
+		};
 
 	# test blib or lib by default
 	version_all_ok();
@@ -160,8 +163,8 @@ strings:>
 	1.2345_01
 
 I<If you want to limit yourself to a much more narrow definition of what a
-version string constitutes, is_strict() is limited to version strings like the
-following list:>
+version string constitutes, C<is_strict()> is limited to version strings like
+the following list:
 
 	v1.234.5
 	2.3456
@@ -191,6 +194,8 @@ C<blib> or C<lib> if you haven't passed it a directory.
 
 Allows disabling whether a module has to have a version. If set to 0
 version tests will be skipped in any module where no version is found.
+
+really doesn't make sense to use with just L<version_ok>
 
 =setting is_strict
 
