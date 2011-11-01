@@ -163,8 +163,8 @@ strings:>
 	1.2345_01
 
 I<If you want to limit yourself to a much more narrow definition of what a
-version string constitutes, C<is_strict()> is limited to version strings like
-the following list:
+version string constitutes, is_strict() is limited to version strings like
+the following list:>
 
 	v1.234.5
 	2.3456
