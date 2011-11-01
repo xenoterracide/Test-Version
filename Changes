@@ -2,6 +2,13 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+1.001001  2011-11-01
+	- provide is_strict setting to replace STRICTNESS
+	- provide has_version setting to disable that a module must always have a
+	  version
+	- use perl decimal style semantic versioning because of bugs in EUMM with
+	  vstring versions
+
 v1.1.0    2011-08-14
 	- check if versions are strict
 	- provide STRICTNESS settings to decide what to do if they aren't strict
