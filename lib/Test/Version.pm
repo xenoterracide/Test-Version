@@ -15,7 +15,7 @@ use Module::Extract::VERSION;
 use Test::More;
 
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
-our @EXPORT_OK = qw( version_ok is_lax is_strict );
+our @EXPORT_OK = qw( version_ok );
 
 my $cfg;
 
@@ -174,50 +174,33 @@ C<2>
 
 =back
 
-=head1 METHODS
+=function version_ok
 
-=over
-
-=item C<version_ok( $filename, [ $name ] );>
+	version_ok( $filename, [ $name ] );
 
 Test a single C<.pm> file by passing a path to the function. Checks if the
 module has a version, and that it is valid with C<is_lax>.
 
-=item C<version_all_ok( [ $directory, [ $name ]] );>
+=function version_all_ok
+
+	version_all_ok( [ $directory, [ $name ]] );
 
 Test all modules in a directory with C<version_ok>. By default it will check
 C<blib> or C<lib> if you haven't passed it a directory.
 
-=back
+=setting has_version
 
-=head1 CONFIGURATION AND ENVIRONMENT
+	use Test::Version qw( version_all_ok ) { has_version => 0 }
 
+Allows disabling whether a module has to have a version. If set to 0
+version tests will be skipped in any module where no version is found.
 
-=head2 C<STRICTNESS>
+=setting is_strict
 
-this allows you to set how strict you want the version validity checking to
-be. you can set either the package variable C<$Test::Version::STRICTNESS;>
-or the environment variable C<TEST_VERSION_STRICTNESS>.
+	use Test::Version { is_strict => 1 }
 
-=over
-
-=item * C<$Test::Version::STRICTNESS = 0; # default>
-
-
-This will not disable strict checking, but will simply result in a
-passing test even if the C<is_strict> fails.
-
-=item * C<$Test::Version::STRICTNESS = 1;>
-
-This will cause a diagnostic to print if your C<VERSION> is not
-strict. The test will still continue to pass. I<This will be the default in
-1.4.0.>
-
-=item * C<$Test::Version::STRICTNESS = 2;>
-
-This will cause the test to fail if your C<VERSION> is not C<is_strict>.
-
-=back
+this allows enabling of L<version>s C<is_strict> checks to ensure that your
+version is strict.
 
 =head1 LIMITATIONS
 
