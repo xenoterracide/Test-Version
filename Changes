@@ -2,6 +2,9 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+1.001002  2011-11-02
+	- fix some issues in the pod
+
 1.001001  2011-11-01
 	- provide is_strict setting to replace STRICTNESS
 	- provide has_version setting to disable that a module must always have a
