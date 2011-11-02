@@ -169,8 +169,8 @@ the following list:>
 	v1.234.5
 	2.3456
 
-you can cause your tests to fail if not strict by setting L<is_strict> to
-C<2>
+you can cause your tests to fail if not strict by setting L<is_strict|/is_strict> to
+C<1>
 
 =back
 
@@ -195,7 +195,7 @@ C<blib> or C<lib> if you haven't passed it a directory.
 Allows disabling whether a module has to have a version. If set to 0
 version tests will be skipped in any module where no version is found.
 
-really doesn't make sense to use with just L<version_ok>
+really doesn't make sense to use with just L<version_ok|/version_ok>
 
 =setting is_strict
 
