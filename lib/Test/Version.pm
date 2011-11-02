@@ -10,8 +10,8 @@ use parent 'Exporter';
 use Test::Builder;
 use version 0.86 qw( is_lax is_strict );
 use File::Find::Rule::Perl;
-use Module::Extract::VERSION;
 use Test::More;
+use Module::Metadata;
 
 our @EXPORT = qw( version_all_ok ); ## no critic (Modules::ProhibitAutomaticExportation)
 our @EXPORT_OK = qw( version_ok );
@@ -42,8 +42,9 @@ $cfg->{has_version}
 
 sub _get_version {
 	my $pm = shift;
-	return my $version
-		= Module::Extract::VERSION->parse_version_safely( $pm );
+
+	my $info = Module::Metadata->new_from_file( $pm );
+	return $info->version;
 }
 
 sub version_ok {
