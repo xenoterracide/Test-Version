@@ -2,6 +2,10 @@ Revision history for Test-Version
 
 {{$NEXT}}
 
+1.001003  2011-12-01
+	- use Module::Metadata apparently it's closer to how Perl works than
+	  Module::Extract::VERSION
+
 1.001002  2011-11-02
 	- fix some issues in the pod
 
