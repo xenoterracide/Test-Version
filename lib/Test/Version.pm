@@ -40,12 +40,17 @@ $cfg->{has_version}
 	:                       1
 	;
 
+my $version_counter = 0;
+
+
 sub _get_version {
 	my $pm = shift;
 
 	my $info = Module::Metadata->new_from_file( $pm );
 	return $info->version;
 }
+
+my $test = Test::Builder->new;
 
 sub version_ok {
 	my ( $file, $name ) = @_;
@@ -58,8 +63,6 @@ sub version_ok {
 
 	my $version = _get_version( $file );
 
-	my $test = Test::Builder->new;
-
 	if ( not $version and not $cfg->{has_version} ) {
 		$test->skip( 'No version was found in "'
 			. $file
@@ -68,6 +71,8 @@ sub version_ok {
 			;
 
 		return 1;
+	} else {
+		$version_counter++;
 	}
 
 	unless ( $version ) {
@@ -115,6 +120,16 @@ sub version_all_ok {
 	foreach my $file ( @files ) {
 		version_ok( $file );
 	}
+
+	# has at least 1 version in the dist
+	if ( not $cfg->{has_version} and $version_counter < 1 ) {
+		$test->ok( 0, $name );
+		$test->diag( 'Your dist has no versions defined' );
+	}
+	else {
+		$test->ok( 1, $name );
+	}
+
 	return;
 }
 1;

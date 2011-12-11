@@ -12,7 +12,7 @@ my ( $premature, @results ) = run_tests(
 	}
 );
 
-is( scalar(@results), 4, 'correct number of results' );
+is( scalar(@results), 5, 'correct number of results' );
 
 my @oks;
 
@@ -22,7 +22,7 @@ foreach my $result ( @results ) {
 
 my $sorted = [ sort @oks ];
 
-my $expected = [ ( 0, 0, 1, 1 ) ];
+my $expected = [ ( 0, 0, 1, 1, 1 ) ];
 
 note( 'unsorted oks: ', @oks );
 
