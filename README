@@ -2,11 +2,14 @@ NAME
     Test::Version - Check to see that version's in modules are sane
 
 VERSION
-    version 1.0.1
+    version 1.001004
 
 SYNOPSIS
             use Test::More;
-            use Test::Version 0.04;
+            use Test::Version 1.001001 qw( version_ok ), {
+                            is_strict   => 0,
+                            has_version => 1,
+                    };
 
             # test blib or lib by default
             version_all_ok();
@@ -37,16 +40,45 @@ DESCRIPTION
                 1.2345
                 1.2345_01
 
-METHODS
-    "version_ok( $filename, [ $name ] );"
-        Test a single ".pm" file by passing a path to the function. Checks
-        if the module has a version, and that it is valid with "is_lax".
+        *If you want to limit yourself to a much more narrow definition of
+        what a version string constitutes, is_strict() is limited to version
+        strings like the following list:*
 
-    "version_all_ok( [ $directory, [ $name ]] );"
-        Test all modules in a directory with "version_ok". By default it
-        will check "blib" or "lib" if you haven't passed it a directory.
+                v1.234.5
+                2.3456
 
-BUGS AND LIMITATIONS
+        you can cause your tests to fail if not strict by setting is_strict
+        to 1
+
+FUNCTIONS
+  version_ok
+            version_ok( $filename, [ $name ] );
+
+    Test a single ".pm" file by passing a path to the function. Checks if
+    the module has a version, and that it is valid with "is_lax".
+
+  version_all_ok
+            version_all_ok( [ $directory, [ $name ]] );
+
+    Test all modules in a directory with "version_ok". By default it will
+    check "blib" or "lib" if you haven't passed it a directory.
+
+CONFIGURATION AND ENVIRONMENT
+  has_version
+            use Test::Version qw( version_all_ok ), { has_version => 0 };
+
+    Allows disabling whether a module has to have a version. If set to 0
+    version tests will be skipped in any module where no version is found.
+
+    really doesn't make sense to use with just version_ok
+
+  is_strict
+            use Test::Version { is_strict => 1 };
+
+    this allows enabling of versions "is_strict" checks to ensure that your
+    version is strict.
+
+LIMITATIONS
     Will not test Perl 5.12 "package" version declarations because
     Module::Extract::VERSION can't extract them yet.
 
@@ -62,6 +94,13 @@ ACKNOWLEDGEMENTS
     "Test::Version" and letting me maintain it further. Thanks to Mike
     Doherty "<doherty at cs dot dal dot ca">, and Michael G. Schwern
     "<schwern at pobox dot com"> for their patches.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/gitpan/Test-Version/issues
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Caleb Cushing <xenoterracide@gmail.com>

@@ -3,8 +3,8 @@ use 5.006;
 use strict;
 use warnings;
 use Test::Tester;
-use Test::Version qw( version_all_ok );
 use Test::More;
+use Test::Version qw( version_all_ok ), { has_version => 0 };
 
 my ( $premature, @results ) = run_tests(
 	sub {
@@ -12,7 +12,7 @@ my ( $premature, @results ) = run_tests(
 	}
 );
 
-is( scalar(@results), 3, 'correct number of results' );
+is( scalar(@results), 5, 'correct number of results' );
 
 my @oks;
 
@@ -22,7 +22,7 @@ foreach my $result ( @results ) {
 
 my $sorted = [ sort @oks ];
 
-my $expected = [ ( 0, 0, 1 ) ];
+my $expected = [ ( 0, 1, 1, 1, 1 ) ];
 
 note( 'unsorted oks: ', @oks );
 

@@ -14,7 +14,7 @@ check_test(
 	{
 		ok => 0,
 		name => q[check version in 'corpus/fail/FooBarBaz.pm'],
-		diag => qq[The version '\c@\cA\c@' found in 'corpus/fail/FooBarBaz.pm' is invalid.],
+		diag => qq[The version 'v.Inf' found in 'corpus/fail/FooBarBaz.pm' is invalid.],
 	},
 	'version invalid'
 );

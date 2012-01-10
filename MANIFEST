@@ -6,6 +6,7 @@ META.yml
 Makefile.PL
 README
 corpus/fail/FooBarBaz.pm
+corpus/not_strict/NotStrict.pm
 corpus/noversion/FooBar.pm
 corpus/pass/Foo.pm
 docs/SubmittingPatches.pod
@@ -18,7 +19,10 @@ t/02-fail.t
 t/03-noversion.t
 t/04-no-file.t
 t/05-file-not-defined.t
-t/06-all.t
+t/06-strict.t
+t/10-all.t
+t/11-all-has-version-false.t
+t/12-at-least-one-version.t
 t/author-critic.t
 t/author-pod-spell.t
 t/release-cpan-changes.t

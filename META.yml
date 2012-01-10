@@ -3,17 +3,18 @@ abstract: "Check to see that version's in modules are sane"
 author:
   - 'Caleb Cushing <xenoterracide@gmail.com>'
 build_requires:
-  Carp: 0
   English: 0
   File::Find: 0
   File::Temp: 0
   Scalar::Util: 0
+  Test::Exception: 0
   Test::More: 0.94
+  Test::Requires: 0
   Test::Tester: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200013, CPAN::Meta::Converter version 2.112150'
+generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640'
 license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,15 +26,19 @@ no_index:
   file:
     - perlcritic.rc
 requires:
+  Carp: 0
   Exporter: 0
   File::Find::Rule::Perl: 0
-  Module::Extract::VERSION: 0
+  Module::Metadata: 0
   Test::Builder: 0
   Test::More: 0
   parent: 0
   perl: 5.006
+  strict: 0
   version: 0.86
+  warnings: 0
 resources:
-  bugtracker: http://github.com/xenoterracide/Test-Version/issues
-  repository: git://github.com/xenoterracide/Test-Version.git
-version: 1.0.1
+  bugtracker: https://github.com/gitpan/Test-Version/issues
+  homepage: http://search.cpan.org/dist/Test-Version/
+  repository: git://github.com/gitpan/Test-Version.git
+version: 1.001004

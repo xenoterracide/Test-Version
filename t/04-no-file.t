@@ -2,17 +2,13 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::Tester tests => 7;
+use Test::More;
+use Test::Exception;
 use Test::Version qw( version_ok );
 
-check_test(
-	sub {
-		version_ok( 'corpus/nofile/nofile.pm' );
-	},
-	{
-		ok => 0,
-		name => q[check version in 'corpus/nofile/nofile.pm'],
-		diag => q['corpus/nofile/nofile.pm' doesn't exist.],
-	},
-	'no file'
-);
+
+dies_ok { version_ok( 'corpus/nofile/nofile.pm' ) }
+	'file "corpus/nofile/nofile.pm" does not exist'
+	;
+
+done_testing;

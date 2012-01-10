@@ -1,6 +1,28 @@
 Revision history for Test-Version
 
-1.0.1     2011-08-06
+1.001004  2012-01-09
+	- use Module::Metadata
+	- allow disabling of 'has_version'
+	- require at least 1 version
+	- allow for checking that a module is_strict
+
+1.001003  2011-12-01
+	- use Module::Metadata apparently it's closer to how Perl works than
+	  Module::Extract::VERSION
+
+1.001002  2011-11-02
+	- fix some issues in the pod
+
+1.001001  2011-11-01
+	- provide is_strict setting to replace STRICTNESS
+	- provide has_version setting to disable that a module must always have a
+	  version
+	- use perl decimal style semantic versioning because of bugs in EUMM with
+	  vstring versions
+
+v1.1.0    2011-08-14
+	- check if versions are strict
+	- provide STRICTNESS settings to decide what to do if they aren't strict
 
 1.0.0     2011-07-01
 	- Change to Semantic Versioning
