@@ -2,6 +2,12 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.002000  2012-01-09
+	- use Module::Metadata
+	- allow disabling of 'has_version'
+	- require at least 1 version
+	- allow for checking that a module is_strict
+
 1.001003  2011-12-01
 	- use Module::Metadata apparently it's closer to how Perl works than
 	  Module::Extract::VERSION
