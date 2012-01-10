@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.001004'; # VERSION
+our $VERSION = '1.002000'; # VERSION
 
 use parent 'Exporter';
 use Test::Builder;
@@ -149,7 +149,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 1.001004
+version 1.002000
 
 =head1 SYNOPSIS
 
