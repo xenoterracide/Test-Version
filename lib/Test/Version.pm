@@ -124,7 +124,10 @@ sub version_all_ok {
 	# has at least 1 version in the dist
 	if ( not $cfg->{has_version} and $version_counter < 1 ) {
 		$test->ok( 0, $name );
-		$test->diag( 'Your dist has no versions defined' );
+		$test->diag(
+			'Your dist has no valid versions defined. '
+			. 'Must have at least one version'
+			);
 	}
 	else {
 		$test->ok( 1, $name );
