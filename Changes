@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.002001  2012-03-14
+	- fix metadata caused by a bug in DZP::GitHub after asking repo to be
+	  unlinked from gitpan.
+
 1.002000  2012-01-09
 	- use Module::Metadata
 	- allow disabling of 'has_version'
