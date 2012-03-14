@@ -4,7 +4,7 @@
       "Caleb Cushing <xenoterracide@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640",
+   "generated_by" : "Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "artistic_2"
    ],
@@ -29,44 +29,44 @@
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
-            "Exporter" : 0,
-            "File::Find::Rule::Perl" : 0,
-            "Module::Metadata" : 0,
-            "Test::Builder" : 0,
-            "Test::More" : 0,
-            "parent" : 0,
+            "Carp" : "0",
+            "Exporter" : "0",
+            "File::Find::Rule::Perl" : "0",
+            "Module::Metadata" : "0",
+            "Test::Builder" : "0",
+            "Test::More" : "0",
+            "parent" : "0",
             "perl" : "5.006",
-            "strict" : 0,
+            "strict" : "0",
             "version" : "0.86",
-            "warnings" : 0
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "English" : 0,
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "Scalar::Util" : 0,
-            "Test::Exception" : 0,
+            "English" : "0",
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Scalar::Util" : "0",
+            "Test::Exception" : "0",
             "Test::More" : "0.94",
-            "Test::Requires" : 0,
-            "Test::Tester" : 0
+            "Test::Requires" : "0",
+            "Test::Tester" : "0"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/gitpan/Test-Version/issues"
+         "web" : "https://github.com/xenoterracide/Test-Version/issues"
       },
       "homepage" : "http://search.cpan.org/dist/Test-Version/",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/gitpan/Test-Version.git",
-         "web" : "https://github.com/gitpan/Test-Version"
+         "url" : "git://github.com/xenoterracide/Test-Version.git",
+         "web" : "https://github.com/xenoterracide/Test-Version"
       }
    },
-   "version" : "1.002000"
+   "version" : "1.002001"
 }
 

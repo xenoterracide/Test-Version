@@ -2,7 +2,7 @@ NAME
     Test::Version - Check to see that version's in modules are sane
 
 VERSION
-    version 1.002000
+    version 1.002001
 
 SYNOPSIS
             use Test::More;
@@ -97,7 +97,7 @@ ACKNOWLEDGEMENTS
 
 BUGS
     Please report any bugs or feature requests on the bugtracker website
-    https://github.com/gitpan/Test-Version/issues
+    https://github.com/xenoterracide/Test-Version/issues
 
     When submitting a bug or request, please include a test-file or a patch
     to an existing test-file that illustrates the bug or desired feature.

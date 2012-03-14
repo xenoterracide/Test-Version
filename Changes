@@ -1,5 +1,7 @@
 Revision history for Test-Version
 
+1.002001  2012-03-14
+
 1.002000  2012-01-09
 	- use Module::Metadata
 	- allow disabling of 'has_version'

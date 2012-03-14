@@ -14,7 +14,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640'
+generated_by: 'Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120630'
 license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -38,7 +38,7 @@ requires:
   version: 0.86
   warnings: 0
 resources:
-  bugtracker: https://github.com/gitpan/Test-Version/issues
+  bugtracker: https://github.com/xenoterracide/Test-Version/issues
   homepage: http://search.cpan.org/dist/Test-Version/
-  repository: git://github.com/gitpan/Test-Version.git
-version: 1.002000
+  repository: git://github.com/xenoterracide/Test-Version.git
+version: 1.002001

@@ -25,10 +25,10 @@ t/11-all-has-version-false.t
 t/12-at-least-one-version.t
 t/author-critic.t
 t/author-pod-spell.t
+t/author-test-eol.t
 t/release-cpan-changes.t
 t/release-dist-manifest.t
 t/release-distmeta.t
-t/release-eol.t
 t/release-kwalitee.t
 t/release-meta-json.t
 t/release-minimum-version.t

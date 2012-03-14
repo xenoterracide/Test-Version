@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.002000'; # VERSION
+our $VERSION = '1.002001'; # VERSION
 
 use parent 'Exporter';
 use Test::Builder;
@@ -149,7 +149,7 @@ Test::Version - Check to see that version's in modules are sane
 
 =head1 VERSION
 
-version 1.002000
+version 1.002001
 
 =head1 SYNOPSIS
 
@@ -268,7 +268,7 @@ com>> for their patches.
 =head1 BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/gitpan/Test-Version/issues
+https://github.com/xenoterracide/Test-Version/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
