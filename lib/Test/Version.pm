@@ -142,7 +142,7 @@ sub version_all_ok {
 =head1 SYNOPSIS
 
 	use Test::More;
-	use Test::Version 1.001001 qw( version_ok ), {
+	use Test::Version 1.001001 qw( version_all_ok ), {
 			is_strict   => 0,
 			has_version => 1,
 		};
