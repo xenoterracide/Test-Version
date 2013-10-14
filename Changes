@@ -3,7 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
 
 1.002003  2013-10-14
-	- fix misgithap 
+	- fix misgithap
 	- more dist.ini updates
 
 1.002002  2013-10-14
