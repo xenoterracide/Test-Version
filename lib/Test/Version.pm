@@ -223,11 +223,6 @@ really doesn't make sense to use with just L<version_ok|/version_ok>
 this allows enabling of L<version>s C<is_strict> checks to ensure that your
 version is strict.
 
-=head1 LIMITATIONS
-
-Will not test Perl 5.12 C<package> version declarations because
-L<Module::Extract::VERSION> can't extract them yet.
-
 =head1 SEE ALSO
 
 The goal is to have the functionality of all of these.
@@ -241,12 +236,5 @@ The goal is to have the functionality of all of these.
 =item L<Test::GreaterVersion>
 
 =back
-
-=head1 ACKNOWLEDGEMENTS
-
-Special thanks to particle C<<particle at cpan dot org>> for the original
-C<Test::Version> and letting me maintain it further. Thanks to Mike Doherty
-C<<doherty at cs dot dal dot ca>>, and Michael G. Schwern C<<schwern at pobox dot
-com>> for their patches.
 
 =cut
