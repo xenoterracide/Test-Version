@@ -2,6 +2,15 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.002003  2013-10-14
+	- fix misgithap 
+	- more dist.ini updates
+
+1.002002  2013-10-14
+	- fix synopsis GH #6 ( plicease )
+	- change Dist::Zilla Plugins
+	- remove old documentation that no longer applies
+
 1.002001  2012-03-14
 	- fix metadata caused by a bug in DZP::GitHub after asking repo to be
 	  unlinked from gitpan.
