@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.002004  2013-11-21
+	- fix bugs in argument handling
+	- fix whitespace
+
 1.002003  2013-10-14
 	- fix misgithap
 	- more dist.ini updates
