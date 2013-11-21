@@ -27,18 +27,19 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 			$cfg = $param
 		}
 	}
+
+	$cfg->{is_strict}
+		= defined $cfg->{is_strict}           ? $cfg->{is_strict}
+		:                                       0
+		;
+
+	$cfg->{has_version}
+		= defined $cfg->{has_version}         ? $cfg->{has_version}
+		:                                       1
+		;
+
 	__PACKAGE__->export_to_level( 1, @exports );
 }
-
-$cfg->{is_strict}
-	= defined $cfg->{is_strict}   ? $cfg->{is_strict}
-	:                               0
-	;
-
-$cfg->{has_version}
-	= defined $cfg->{has_version} ? $cfg->{has_version}
-	:                               1
-	;
 
 my $version_counter = 0;
 
