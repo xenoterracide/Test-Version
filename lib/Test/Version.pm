@@ -31,13 +31,13 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 }
 
 $cfg->{is_strict}
-	= $cfg->{is_strict} ? $cfg->{is_strict}
-	:                     0
+	= defined $cfg->{is_strict}   ? $cfg->{is_strict}
+	:                               0
 	;
 
 $cfg->{has_version}
-	= $cfg->{has_version} ? $cfg->{has_version}
-	:                       1
+	= defined $cfg->{has_version} ? $cfg->{has_version}
+	:                               1
 	;
 
 my $version_counter = 0;
