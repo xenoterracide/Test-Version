@@ -7,7 +7,7 @@ Revision history for {{$dist->name}}
 	- more dist.ini updates
 
 1.002002  2013-10-14
-	- fix synopsis GH #6 ( plicease )
+	- fix synopsis GH #6, #7 ( plicease )
 	- change Dist::Zilla Plugins
 	- remove old documentation that no longer applies
 
