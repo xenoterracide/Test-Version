@@ -4,7 +4,10 @@ use strict;
 use warnings;
 use Test::Tester;
 use Test::More;
-use Test::Version qw( version_all_ok ), { has_version => 0 };
+use Test::Version version_all_ok => {
+	has_version        => 0,
+	ignore_unindexable => 0,
+};
 
 my ( $premature, @results ) = run_tests(
 	sub {

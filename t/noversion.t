@@ -3,7 +3,7 @@ use 5.006;
 use strict;
 use warnings;
 use Test::Tester tests => 7;
-use Test::Version qw( version_ok );
+use Test::Version version_ok => { ignore_unindexable => 0 };
 
 check_test(
 	sub {

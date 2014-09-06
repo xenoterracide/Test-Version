@@ -38,20 +38,31 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 		:                                       1
 		;
 
+	my $mmv = version->parse( $Module::Metadata::VERSION );
+	my $rec = version->parse( '1.000020'  );
+	if ( $mmv >= $rec && ! defined $cfg->{ignore_unindexable} ) {
+		$cfg->{ignore_unindexable} = 1;
+   }
+
 	__PACKAGE__->export_to_level( 1, @exports );
 }
 
 my $version_counter = 0;
 
+my $test = Test::Builder->new;
 
 sub _get_version {
 	my $pm = shift;
 
 	my $info = Module::Metadata->new_from_file( $pm );
+
+	if ( $cfg->{ignore_unindexable} ) {
+		$test->skip( "$pm not indexable" );
+		return if ! $info->is_indexable;
+	}
+
 	return $info->version;
 }
-
-my $test = Test::Builder->new;
 
 sub version_ok {
 	my ( $file, $name ) = @_;
@@ -223,6 +234,13 @@ really doesn't make sense to use with just L<version_ok|/version_ok>
 
 this allows enabling of L<version>s C<is_strict> checks to ensure that your
 version is strict.
+
+=setting ignore_unindexable
+
+	use Test::Version { ignore_unindexable => 0};
+
+if you have at least L<Module::Metadata> vC<1.000020> Test::Version will by
+default skip any files not considered L<is_indexable|Module::Metadata/is_indexable>
 
 =head1 SEE ALSO
 

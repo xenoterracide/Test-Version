@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 use Test::Exception;
-use Test::Version qw( version_ok );
+use Test::Version version_ok => { ignore_unindexable => 0 };
 
 dies_ok { version_ok; } 'croak on bad api call';
 

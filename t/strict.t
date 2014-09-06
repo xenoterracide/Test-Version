@@ -4,7 +4,10 @@ use strict;
 use warnings;
 use Test::Tester;
 use Test::More;
-use Test::Version qw( version_ok ), { is_strict => 1 };
+use Test::Version version_ok => {
+	is_strict          => 1,
+	ignore_unindexable => 0,
+};
 
 my $ret;
 check_test(

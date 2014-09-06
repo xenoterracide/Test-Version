@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::Tester tests => 8;
 use Test::More;
-use Test::Version qw( version_ok );
+use Test::Version version_ok => { ignore_unindexable => 0 };
 
 my $ret;
 check_test(

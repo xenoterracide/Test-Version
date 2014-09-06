@@ -3,7 +3,7 @@ use 5.006;
 use strict;
 use warnings;
 use Test::Tester;
-use Test::Version qw( version_all_ok );
+use Test::Version version_all_ok => { ignore_unindexable => 0 };
 use Test::More;
 
 my ( $premature, @results ) = run_tests(
