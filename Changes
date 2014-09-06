@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.003001  2014-09-06
+	- remove inline and remove _get_version, trying to skip test there won't
+	  work GH #4 (ETHER)
+
 1.003000  2014-09-05
 	- skip packages unindexable by pause GH #4 (ETHER)
 
