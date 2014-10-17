@@ -38,6 +38,11 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 		:                                       1
 		;
 
+	$cfg->{consistent}
+		= defined $cfg->{consistent}           ? $cfg->{consistent}
+		:                                       0
+		;
+
 	my $mmv = version->parse( $Module::Metadata::VERSION );
 	my $rec = version->parse( '1.000020'  );
 	if ( $mmv >= $rec && ! defined $cfg->{ignore_unindexable} ) {
@@ -48,6 +53,8 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 }
 
 my $version_counter = 0;
+my $version_number;
+my $consistent = 1;
 
 my $test = Test::Builder->new;
 
@@ -67,6 +74,10 @@ sub version_ok {
 	}
 	my $version = $info->version;
 
+	if (not defined $version) {
+		$consistent = 0;
+	}
+
 	if ( not $version and not $cfg->{has_version} ) {
 		$test->skip( 'No version was found in "'
 			. $file
@@ -83,6 +94,13 @@ sub version_ok {
 		$test->ok( 0 , $name );
 		$test->diag( "No version was found in '$file'." );
 		return 0;
+	}
+
+	unless (defined $version_number) {
+		$version_number = $version;
+	}
+	if ($version ne $version_number) {
+		$consistent = 0;
 	}
 
 	unless ( is_lax( $version ) ) {
@@ -123,6 +141,12 @@ sub version_all_ok {
 
 	foreach my $file ( @files ) {
 		version_ok( $file );
+	}
+
+	if ($cfg->{consistent} and not $consistent) {
+		$test->ok( 0, $name );
+		$test->diag('The version numbers in this distribution are not the same');
+		return;
 	}
 
 	# has at least 1 version in the dist
