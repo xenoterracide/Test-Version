@@ -173,6 +173,7 @@ sub version_all_ok {
 	use Test::Version 1.001001 qw( version_all_ok ), {
 			is_strict   => 0,
 			has_version => 1,
+			consistent  => 1,
 		};
 
 	# test blib or lib by default
@@ -250,6 +251,12 @@ really doesn't make sense to use with just L<version_ok|/version_ok>
 
 this allows enabling of L<version>s C<is_strict> checks to ensure that your
 version is strict.
+
+=setting consistent
+
+	use Test::Version { consistent => 1 };
+
+Check if every module has the same version number.
 
 =setting ignore_unindexable
 
