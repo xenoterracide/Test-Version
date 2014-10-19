@@ -55,6 +55,7 @@ sub import { ## no critic qw( Subroutines::RequireArgUnpacking Subroutines::Requ
 my $version_counter = 0;
 my $version_number;
 my $consistent = 1;
+my %versions;
 
 my $test = Test::Builder->new;
 
@@ -73,6 +74,8 @@ sub version_ok {
 		return 0 if ! $info->is_indexable;
 	}
 	my $version = $info->version;
+
+	$versions{$file} = $version;
 
 	if (not defined $version) {
 		$consistent = 0;
@@ -146,6 +149,9 @@ sub version_all_ok {
 	if ($cfg->{consistent} and not $consistent) {
 		$test->ok( 0, $name );
 		$test->diag('The version numbers in this distribution are not the same');
+		foreach my $file (sort { $versions{$a} cmp $versions{$b} } keys %versions) {
+			$test->diag(sprintf "%10s %s", (defined $versions{$file} ? $versions{$file} : 'undef'), $file);
+		}
 		return;
 	}
 
