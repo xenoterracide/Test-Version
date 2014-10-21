@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.004001  2014-10-20
+	- improved consistent check diagnostics GH #11 (SZABGAB)
+
 1.004000  2014-10-18
 	- add consistent check GH #10 (SZABGAB)
 
