@@ -187,6 +187,18 @@ sub version_all_ok {
 
 	done_testing;
 
+Alternatively the following version will only run the test if Test::Version is installed
+
+	use Test::More;
+	eval q{use Test::Version 1.003001 qw( version_all_ok ), {
+		is_strict   => 0,
+		has_version => 1,
+	};};
+	plan skip_all => "Test::Version 1.003001 required for testing version numbers" if $@;
+	version_all_ok();
+	done_testing;
+
+
 =head1 DESCRIPTION
 
 This module's goal is to be a one stop shop for checking to see that your
